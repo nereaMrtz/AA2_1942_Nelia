@@ -19,3 +19,18 @@ Vector2 Vector2::Normalize() {
 
 	return vector2;
 }
+
+Vector2 Vector2::operator+(const Vector2& other)
+{
+	return Vector2(x + other.x, y + other.y);
+}
+
+Vector2 Vector2::operator-(const Vector2& other)
+{
+	return Vector2(x - other.x, y - other.y);
+}
+
+Vector2 Vector2::operator*(const float other)
+{
+	return Vector2(x * other, y * other);
+}
