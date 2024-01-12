@@ -10,7 +10,7 @@ private:
 public:
 	Tile();
 	Tile(bool isLethal);
-	void Update() override;
+	void Update(float dt) override;
 	void Render() override;
 };
 

@@ -14,7 +14,7 @@ public:
 	//AABB boundingBox;  Clase rigidbody
 
 	Object() = default;
-	virtual void Update(float dt);
+	virtual void Update(float dt) = 0;
 	virtual void Render() = 0;
 
 	Transform GetTransform();
@@ -29,7 +29,7 @@ public:
 
 	bool IsPendingDestroy();
 
-	virtual void Destroy();
-	virtual void OnCollisionEnter(Object* other);
+	//virtual void Destroy();
+	//virtual void OnCollisionEnter(Object* other);
 
 };

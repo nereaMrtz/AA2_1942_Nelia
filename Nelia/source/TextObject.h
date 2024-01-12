@@ -10,7 +10,7 @@ private:
 
 public:
 	TextObject() = default;
-	void Update() override;
+	void Update(float dt) override;
 	void Render() override;
 };
 

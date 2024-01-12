@@ -6,7 +6,7 @@ EndTileItem::EndTileItem(float duration, bool isLethal, std::string stringPath)
 	this->isLethal = isLethal;
 }
 
-void EndTileItem::Update()
+void EndTileItem::Update(float dt)
 {
 }
 

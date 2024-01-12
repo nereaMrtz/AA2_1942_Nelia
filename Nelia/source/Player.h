@@ -25,7 +25,7 @@ public:
 	void PlayTakeOffAnimation();
 	void EnableDoubleFire();
 	void AddSupportPlanes();
-	void OnCollisionEnter(Object* other) override;
+	//void OnCollisionEnter(Object* other) override;
 
 
 };
