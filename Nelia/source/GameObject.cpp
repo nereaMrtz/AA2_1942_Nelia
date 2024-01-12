@@ -1,5 +1,7 @@
 #include "GameObject.h"
 
+
+
 void GameObject::LoadTexture(SDL_Renderer* renderer, std::string path, bool isAnimated, SDL_Rect targetRect, SDL_Rect sourceRect, Vector2 scale)
 {
 	if (!isAnimated) {

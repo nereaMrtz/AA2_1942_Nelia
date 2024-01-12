@@ -13,6 +13,7 @@ Tile::Tile()
 	isLethal = false;
 }
 
+
 void Tile::Render()
 {
 	for(ImageRenderer* render : renderer)

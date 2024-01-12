@@ -1,5 +1,10 @@
 ﻿  Button.cpp
   EndTileItem.cpp
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\EndTileItem.cpp(4,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
   GameEngine.cpp
   GameObject.cpp
   GameplayScene.cpp
@@ -7,10 +12,14 @@
   Player.cpp
   Spawner.cpp
   Tile.cpp
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Tile.cpp(4,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Tile.cpp(12,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
   Generating Code...
-  SDL.vcxproj -> C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\binaries\x64Debug\SDL.exe
-  0 File(s) copied
-  0 File(s) copied
-  0 File(s) copied
-  0 File(s) copied
-  0 File(s) copied
