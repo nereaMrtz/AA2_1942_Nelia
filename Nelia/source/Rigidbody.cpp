@@ -1,40 +1,41 @@
 #include "Rigidbody.h"
 
-Rigidbody::Rigidbody(Transform* transform)
+Rigidbody::Rigidbody(Transform* trans, Vector2 topLeft, Vector2 size)
 {
+    transform = trans;
+    collider = new AABB(topLeft, size);
 }
 
 Rigidbody::~Rigidbody()
 {
 }
 
-void Rigidbody::AddCollider(AABB collider)
+void Rigidbody::AddCollider(AABB* collider)
 {
-	colliders.push_back(collider);
+	//colliders.push_back(collider);
 }
 
-bool Rigidbody::CheckCollision(const Rigidbody* other)
+bool Rigidbody::CheckCollision(AABB* other)
 {
-    /*
     //Top right corner
-    bool collision = (topLeft.x < other->topLeft.x && other->topLeft.x < (topLeft.x + size.x)) && (topLeft.y < other->topLeft.y && other->topLeft.y < (topLeft.y + size.y));
+    bool collision = (collider->GetTopLeft().x < other->GetTopLeft().x && other->GetTopLeft().x < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < other->GetTopLeft().y && other->GetTopLeft().y < (collider->GetTopLeft().y + collider->GetSize().y));
     if (collision)
         return true;
 
     //Top left corner
-    collision = (topLeft.x < (other->topLeft.x + other->size.x)) && (other->topLeft.x + other->size.x) < (topLeft.x + size.x) && (topLeft.y < other->topLeft.y && other->topLeft.y < (topLeft.y + size.y));
+    collision = (collider->GetTopLeft().x < (other->GetTopLeft().x + other->GetSize().x)) && (other->GetTopLeft().x + other->GetSize().x) < (collider->GetTopLeft().x + collider->GetSize().x) && (collider->GetTopLeft().y < other->GetTopLeft().y && other->GetTopLeft().y < (collider->GetTopLeft().y + collider->GetSize().y));
     if (collision)
         return true;
 
     //Bottom right corner
-    collision = (topLeft.x < other->topLeft.x && other->topLeft.x < (topLeft.x + size.x)) && (topLeft.y < (other->topLeft.y + other->size.y) && (other->topLeft.y + other->size.y) < (topLeft.y + size.y));
+    collision = (collider->GetTopLeft().x < other->GetTopLeft().x && other->GetTopLeft().x < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < (other->GetTopLeft().y + other->GetSize().y) && (other->GetTopLeft().y + other->GetSize().y) < (collider->GetTopLeft().y + collider->GetSize().y));
     if (collision)
         return true;
 
     //Bottom left corner
-    collision = (topLeft.x < (other->topLeft.x + other->size.x) && (other->topLeft.x + other->size.x) < (topLeft.x + size.x)) && (topLeft.y < (other->topLeft.y + other->size.y) && (other->topLeft.y + other->size.y) < (topLeft.y + size.y));
+    collision = (collider->GetTopLeft().x < (other->GetTopLeft().x + other->GetSize().x) && (other->GetTopLeft().x + other->GetSize().x) < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < (other->GetTopLeft().y + other->GetSize().y) && (other->GetTopLeft().y + other->GetSize().y) < (collider->GetTopLeft().y + collider->GetSize().y));
     if (collision)
-        return true;*/
+        return true;
 
     return false;
 }
@@ -76,4 +77,9 @@ void Rigidbody::SetAngularDrag(float angularD)
 {
 	this->angularDrag = angularD;
 
+}
+
+AABB* Rigidbody::GetCollider()
+{
+    return collider;
 }

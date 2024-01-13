@@ -25,6 +25,9 @@ GameplayScene::GameplayScene()
 
 	player->SetPosition(RM->windowWidth / 2, RM->windowHeight/2);
 
+	player->SetRigidboy( Rigidbody(&(player->GetTransform()), Vector2(player->transform.position.x - 16, player->transform.position.y - 12), Vector2(32, 24)));
+
+
 
 }
 
@@ -33,8 +36,14 @@ void GameplayScene::Update(float dt)
 	player->Update(dt);
 
 	// ------- PARTE NEREA
-	for (auto enemy : normalPlanes)
+	for (auto enemy : normalPlanes) {
+		if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
+
+			std::cout << "HA CHOCAO" << std::endl;
+		}
+		
 		enemy->Update(dt);
+	}
 	
 	// -------
 }

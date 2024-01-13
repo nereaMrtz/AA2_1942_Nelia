@@ -9,6 +9,11 @@ Transform Object::GetTransform()
     return transform;
 }
 
+Rigidbody Object::GetRigidbody()
+{
+    return physics;
+}
+
 
 void Object::SetPosition(Vector2 p)
 {

@@ -14,6 +14,8 @@ Player::Player() : GameObject()
 	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 1); //1: Left anim
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", true, { 0,0, 512, 512 }, { 32,0, 512, 512 }, { 2, 2 }, 3, 1, false, 1);
 	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 2); //2: Right anim	
+
+	physics = Rigidbody(&transform, Vector2(transform.position.x-16, transform.position.y-12), Vector2(32,24));
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -61,6 +63,8 @@ void Player::Update(float dt)
 
 		Shoot();
 	}
+
+
 
 	bulletTimer += TM->GetDtSec();
 }
