@@ -2,6 +2,8 @@
 
 GameplayScene::GameplayScene()
 {
+
+
 	background = Tile(false);
 	player = new Player();
 
@@ -53,7 +55,11 @@ void GameplayScene::Render(SDL_Renderer*)
 
 void GameplayScene::OnEnter()
 {
+	LevelLoader loader;
+	loader.LoadWaves(".. / resources/stage_o.xml", levelTime);
 }
+
+
 
 void GameplayScene::OnExit()
 {

@@ -197,6 +197,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\GreenPowerUp.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
+    <ClCompile Include="source\LevelLoader.cpp" />
     <ClCompile Include="source\Main.cpp" />
     <ClCompile Include="source\MainMenuScene.cpp" />
     <ClCompile Include="source\Object.cpp" />
@@ -237,6 +238,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClInclude Include="source\GreenPowerUp.h" />
     <ClInclude Include="source\ImageRenderer.h" />
     <ClInclude Include="source\InputManager.h" />
+    <ClInclude Include="source\LevelLoader.h" />
     <ClInclude Include="source\MainMenuScene.h" />
     <ClInclude Include="source\MovementPattern.h" />
     <ClInclude Include="source\MovementType.h" />

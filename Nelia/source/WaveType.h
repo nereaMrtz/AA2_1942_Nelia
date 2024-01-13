@@ -1,3 +1,4 @@
 #pragma once
 
-enum WaveType {A, B, C, D, E};
+
+enum class WaveType {normal, medium_yellow, big_green, small_red };

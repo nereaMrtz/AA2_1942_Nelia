@@ -9,6 +9,8 @@
 #include "Tile.h"
 #include "Player.h"
 #include "SmallNormalPlane.h"
+#include "LevelLoader.h"
+
 
 
 class GameplayScene : public Scene
@@ -24,5 +26,7 @@ public:
 	virtual void Render(SDL_Renderer*) override;
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
+
+	float levelTime;
 };
 
