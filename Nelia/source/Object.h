@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "AABB.h"
 #include "Vector2.h"
+#include "Rigidbody.h"
 
 class Object {
 private:
@@ -11,14 +12,14 @@ private:
 
 public:
 	Transform transform;
-	//AABB boundingBox;  Clase rigidbody
+	Rigidbody physics;
 
 	Object() = default;
-	virtual void Update(float dt) = 0;
+	virtual void Update(float dt);
 	virtual void Render() = 0;
 
 	Transform GetTransform();
-	//AABB GetBoundingBox();  Clase rigidbody
+	AABB GetBoundingBox(); //Clase rigidbody
 
 
 	void SetPosition(Vector2 p);
@@ -29,7 +30,6 @@ public:
 
 	bool IsPendingDestroy();
 
-	//virtual void Destroy();
-	//virtual void OnCollisionEnter(Object* other);
-
+	virtual void Destroy();
+	virtual void OnCollisionEnter(Object* other);
 };

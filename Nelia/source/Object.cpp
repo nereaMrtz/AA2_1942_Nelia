@@ -1,8 +1,17 @@
 #include "Object.h"
 
+void Object::Update(float dt)
+{
+}
+
 Transform Object::GetTransform()
 {
     return transform;
+}
+
+AABB Object::GetBoundingBox()
+{
+    return AABB();
 }
 
 
@@ -25,6 +34,23 @@ void Object::SetScale(Vector2 s)
 void Object::SetTransform(Transform t)
 {
     this->transform = t;
+}
+
+void Object::SetVelocity(Vector2 v)
+{
+}
+
+bool Object::IsPendingDestroy()
+{
+    return false;
+}
+
+void Object::Destroy()
+{
+}
+
+void Object::OnCollisionEnter(Object* other)
+{
 }
 
 

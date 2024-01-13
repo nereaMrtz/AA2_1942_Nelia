@@ -4,7 +4,7 @@
 #include "Vector2.h"
 
 class AABB {
-private:
+protected:
 	Vector2 topLeft;
 	Vector2 size;
 

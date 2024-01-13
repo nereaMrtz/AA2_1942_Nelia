@@ -20,9 +20,18 @@ void GameObject::SetPosition(int x, int y)
 	destinationRect.y = y;*/
 }
 
+void GameObject::Update(float dt)
+{
+}
+
 void GameObject::Render()
 {
 	
+}
+
+Renderer* GameObject::GetRenderer()
+{
+	return nullptr;
 }
 
 //Renderer* GameObject::GetRenderer()

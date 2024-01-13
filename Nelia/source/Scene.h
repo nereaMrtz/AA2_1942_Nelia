@@ -7,6 +7,4 @@ public:
 	virtual void Render(SDL_Renderer*) = 0;
 	virtual void OnEnter() = 0;
 	virtual void OnExit() = 0;
-
-
 };

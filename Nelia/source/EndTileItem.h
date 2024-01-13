@@ -11,6 +11,7 @@ private:
 
 public:
 	EndTileItem(float duration, bool isLethal, std::string stringPath);
+
 	void Update(float dt) override;
 	void Render() override;
 	bool isFinished();

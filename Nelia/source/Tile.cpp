@@ -8,6 +8,7 @@ void Tile::Update(float dt)
 {
 
 }
+
 Tile::Tile()
 {
 	isLethal = false;
