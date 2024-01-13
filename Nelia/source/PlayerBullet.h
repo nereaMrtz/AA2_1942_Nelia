@@ -3,7 +3,7 @@
 
 class PlayerBullet : public GameObject {
 public:
-	PlayerBullet();
+	PlayerBullet(Vector2 pjPos);
 
 	virtual void Update(float dt);
 	void Render() override;

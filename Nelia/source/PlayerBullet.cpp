@@ -1,10 +1,11 @@
 #include "PlayerBullet.h"
 
 
-PlayerBullet::PlayerBullet() : GameObject()
+PlayerBullet::PlayerBullet(Vector2 pjPos) : GameObject()
 {
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 89, 68, 512, 512 }, { 2, 2 }, 6, 4, false, 5);
 	ChangeSourcePosSize({ 0, 0 }, { 16, 32 }, 0);
+	SetPosition(pjPos.x, pjPos.y - 26);
 }
 
 void PlayerBullet::Update(float dt)
