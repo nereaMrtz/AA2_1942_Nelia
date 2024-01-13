@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdlib>
 #include "Spawner.h"
 #include "GameObject.h"
 
@@ -7,6 +8,8 @@ protected:
 	int health;
 	int score;
 	int movementStage;
+
+	Vector2 initPos;
 
 	float movementTime;
 
@@ -20,6 +23,7 @@ public:
 	EnemyPlane(int health, int score, Spawner* spawner);
 	
 	virtual void Update(float dt);
+	void Render() override;
 	virtual void OnCollisionEnter(Object* other);
 };
 

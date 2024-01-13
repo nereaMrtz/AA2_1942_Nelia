@@ -2,7 +2,12 @@
 #include "MovementType.h"
 #include "EnemyPlane.h"
 
+#include <iostream>
+
 class SmallNormalPlane : public EnemyPlane{
+private:
+	bool dir;
+
 protected:
 	MovementType movementType;
 

@@ -4,6 +4,9 @@ GameplayScene::GameplayScene()
 {
 	background = Tile(false);
 	player = new Player();
+	for (int i = 0; i<4; i++)
+	{
+		int random = rand() % 5+2;
 
 	// --------- PARTE NEREA
 	for (int i = 0; i < 4; i++)
@@ -24,6 +27,8 @@ GameplayScene::GameplayScene()
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
 
 	player->SetPosition(RM->windowWidth / 2, RM->windowHeight/2);
+
+
 }
 
 void GameplayScene::Update(float dt)
