@@ -46,7 +46,7 @@ void Renderer::SetAlpha(float alpha)
 	this->alpha = alpha;
 }
 
-void Renderer::SetPosition(int x, int y)
+void Renderer::SetPosition(float x, float y)
 {
 	this->position.x = x;
 	this->position.y = y;

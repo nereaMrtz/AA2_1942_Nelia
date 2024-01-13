@@ -4,8 +4,8 @@
 class Vector2
 {
 public:
-	int x;
-	int y;
+	float x;
+	float y;
 
 	Vector2();
 	Vector2(float x, float y);

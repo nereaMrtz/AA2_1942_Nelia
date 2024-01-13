@@ -3,6 +3,7 @@
 #include "Spawner.h"
 #include "SupportPlane.h"
 #include "EnemyPlane.h"
+#include "PlayerBullet.h"
 
 class Player : public GameObject {
 private:
@@ -12,6 +13,9 @@ private:
 	bool doubleFire;
 	std::vector<SupportPlane*> supportPlanes;
 	void PlayRollAnimation();
+	int currentAnim;
+
+	PlayerBullet* bullet;
 
 public:
 	Player();

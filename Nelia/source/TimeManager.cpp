@@ -17,7 +17,7 @@ TimeManager* TimeManager::GetInstance()
 
 void TimeManager::Update()
 {
-    dt += SDL_GetTicks() - time;
+    dt = SDL_GetTicks() - time;
     time = SDL_GetTicks();
     std::cout << dt/1000.0f << std::endl;
 }
