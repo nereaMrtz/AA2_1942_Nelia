@@ -23,12 +23,9 @@ GameplayScene::GameplayScene()
 
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
 
-	player->SetPosition(RM->windowWidth / 2, RM->windowHeight/2);
+	//player->SetPosition(RM->windowWidth / 2, RM->windowHeight/2);
 
-	player->SetRigidboy( Rigidbody(&(player->GetTransform()), Vector2(player->transform.position.x - 16, player->transform.position.y - 12), Vector2(32, 24)));
-
-
-
+	//player->SetRigidboy( Rigidbody(&(player->GetTransform()), Vector2(player->transform.position.x - 16, player->transform.position.y - 12), Vector2(32, 24)));
 }
 
 void GameplayScene::Update(float dt)
@@ -37,7 +34,7 @@ void GameplayScene::Update(float dt)
 
 	// ------- PARTE NEREA
 	for (auto enemy : normalPlanes) {
-		if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
+		if (player.p ->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 
 			std::cout << "HA CHOCAO" << std::endl;
 		}
