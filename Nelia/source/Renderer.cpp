@@ -3,6 +3,24 @@
 // SDL_Rect{ controls the rect's x coordinate, controls the rect's y coordinate, 
 			//controls the width of the rect, controls the width of the rect}
 
+void Renderer::SetSourcePos(Vector2 pos)
+{
+	targetRect.x = pos.x;
+	targetRect.y = pos.y;
+}
+
+void Renderer::SetSourceSize(Vector2 size)
+{
+	sourceRect.w = size.x;
+	sourceRect.h = size.y;
+}
+
+void Renderer::UpdateTargetRect()
+{
+	targetRect.w = sourceRect.w * scale.x;
+	targetRect.h = sourceRect.h * scale.y;
+}
+
 Renderer::Renderer() {
 
 }
@@ -28,9 +46,12 @@ void Renderer::SetAlpha(float alpha)
 	this->alpha = alpha;
 }
 
-void Renderer::SetPosition(Vector2 position)
+void Renderer::SetPosition(int x, int y)
 {
-	this->position = position;
+	this->position.x = x;
+	this->position.y = y;
+	this->targetRect.x = position.x - (targetRect.w / 2);
+	this->targetRect.y = position.y - (targetRect.h / 2);
 }
 
 void Renderer::SetRotation(float rotation)

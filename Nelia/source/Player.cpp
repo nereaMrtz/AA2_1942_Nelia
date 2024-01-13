@@ -4,8 +4,9 @@ void Player::PlayRollAnimation()
 {
 }
 
-Player::Player(Spawner* spawner) : GameObject()
+Player::Player() : GameObject()
 {
+
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -19,7 +20,10 @@ void Player::Update(float dt)
 
 void Player::Render()
 {
-
+	for (auto element : renderer) {
+		element->SetPosition(transform.position.x, transform.position.y);
+		element->Render();
+	}
 }
 
 void Player::Shoot()

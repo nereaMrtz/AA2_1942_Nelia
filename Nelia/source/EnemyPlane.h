@@ -2,7 +2,7 @@
 #include "Spawner.h"
 #include "GameObject.h"
 
-class EnemyPlane {
+class EnemyPlane : public GameObject {
 protected:
 	int health;
 	int score;

@@ -19,8 +19,6 @@ protected:
 	float alpha;
 	float rotation;
 
-	void SetSourcePos(Vector2 pos );
-	void SetSourceSize(Vector2 size);
 
 public:
 	//******FUNCIONES
@@ -34,9 +32,12 @@ public:
 	//******GETTERS SETTERS
 	void SetColor(SDL_Color color);
 	void SetAlpha(float alpha);
-	void SetPosition(Vector2 position);
+	void SetPosition(int x, int y);
 	void SetRotation(float rotation);
 	void SetScale(Vector2 scale);
+	void SetSourcePos(Vector2 pos);
+	void SetSourceSize(Vector2 size);
+	void UpdateTargetRect();
 
 	SDL_Color GetColor();
 	float GetAlpha();
