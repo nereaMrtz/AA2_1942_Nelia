@@ -9,12 +9,6 @@ Transform Object::GetTransform()
     return transform;
 }
 
-AABB Object::GetBoundingBox()
-{
-    return AABB();
-}
-
-
 
 void Object::SetPosition(Vector2 p)
 {

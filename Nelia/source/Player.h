@@ -15,7 +15,7 @@ private:
 	void PlayRollAnimation();
 	int currentAnim;
 
-	PlayerBullet* bullet;
+	std::vector<PlayerBullet*> bullets;
 
 public:
 	Player();
@@ -29,5 +29,7 @@ public:
 	void EnableDoubleFire();
 	void AddSupportPlanes();
 	void OnCollisionEnter(Object* other) override;
+
+	std::vector<PlayerBullet*> GetBullets();
 };
 

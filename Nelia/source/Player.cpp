@@ -46,8 +46,11 @@ void Player::Update(float dt)
 		Shoot();
 	}
 
-	if (bullet != nullptr)
-		bullet->Update(dt);
+	if (!bullets.empty()) {
+		for (auto bullet : bullets) {
+			bullet->Update(dt);
+		}
+	}
 }
 
 void Player::Render()
@@ -56,14 +59,19 @@ void Player::Render()
 	renderer[currentAnim]->Update();
 	renderer[currentAnim]->Render();
 
-	if(bullet!= nullptr)
-		bullet->Render();
+	if (!bullets.empty()) {
+		for (auto bullet : bullets) {
+			bullet->Render();
+		}
+	}
 }
 
 void Player::Shoot()
 {
-	bullet = new PlayerBullet;
-	bullet->SetPosition(this->GetTransform().position.x, this->GetTransform().position.y - 26);
+	PlayerBullet* aux = new PlayerBullet;
+
+
+	//bullet->SetPosition(this->GetTransform().position.x, this->GetTransform().position.y - 26);
 }
 
 void Player::PlayDeathAnimation()
@@ -88,4 +96,9 @@ void Player::AddSupportPlanes()
 
 void Player::OnCollisionEnter(Object* other)
 {
+}
+
+std::vector<PlayerBullet*> Player::GetBullets()
+{
+	return bullets;
 }

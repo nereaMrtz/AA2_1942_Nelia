@@ -19,7 +19,6 @@ public:
 	virtual void Render() = 0;
 
 	Transform GetTransform();
-	AABB GetBoundingBox(); //Clase rigidbody
 
 
 	void SetPosition(Vector2 p);

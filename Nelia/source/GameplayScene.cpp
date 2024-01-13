@@ -4,9 +4,6 @@ GameplayScene::GameplayScene()
 {
 	background = Tile(false);
 	player = new Player();
-	for (int i = 0; i<4; i++)
-	{
-		int random = rand() % 5+2;
 
 	// --------- PARTE NEREA
 	for (int i = 0; i < 4; i++)
@@ -14,8 +11,8 @@ GameplayScene::GameplayScene()
 		int random = rand() % 5 + 2;
 
 		auto enemy = new SmallNormalPlane(V);
-		enemy->LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,160, 512, 512 }, { 1, 1 }, 0, 0);
-		enemy->ChangeSourcePosSize({ 0,0 }, { 24,16 });
+		enemy->LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,160, 512, 512 }, { 1, 1 }, 0, 0, false, 0);
+		enemy->ChangeSourcePosSize({ 0,0 }, { 24,16 }, 0);
 		enemy->SetPosition(RM->windowWidth / random, RM->windowHeight / 6);
 		//std::cout << random <<" "<< random << std::endl;
 		normalPlanes.push_back(enemy);

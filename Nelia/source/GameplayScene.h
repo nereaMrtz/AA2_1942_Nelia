@@ -18,8 +18,6 @@ private:
 	Player* player;
 	std::vector<SmallNormalPlane*> normalPlanes;
 
-	std::vector<SmallNormalPlane*> normalPlanes;
-
 public:
 	GameplayScene();
 	virtual void Update(float dt) override;
