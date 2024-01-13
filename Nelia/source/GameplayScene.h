@@ -7,12 +7,14 @@
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
 #include "Player.h"
+#include "SmallNormalPlane.h"
 
 class GameplayScene : public Scene
 {
 private:
 	Tile background;
 	Player* player;
+	std::vector<SmallNormalPlane*> normalPlanes;
 
 public:
 	GameplayScene();
