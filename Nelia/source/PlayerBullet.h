@@ -1,13 +1,12 @@
 #pragma once
 #include "GameObject.h"
 
-class PlayerBullet
-{
+class PlayerBullet : public GameObject {
 public:
 	PlayerBullet();
 
-	virtual void Update(float dt); //override;
-	void OnCollisionEnter(Object* other); //override;
-
+	virtual void Update(float dt);
+	void Render() override;
+	void OnCollisionEnter(Object* other);
 };
 

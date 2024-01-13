@@ -13,7 +13,7 @@ Player::Player() : GameObject()
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", true, { 0,0, 512, 512 }, { 64,0, 512, 512 }, { 2, 2 }, 3, 1, false, 1);
 	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 1); //1: Left anim
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", true, { 0,0, 512, 512 }, { 32,0, 512, 512 }, { 2, 2 }, 3, 1, false, 1);
-	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 2); //2: Right anim
+	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 2); //2: Right anim	
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -40,18 +40,30 @@ void Player::Update(float dt)
 	}
 	else {
 		renderer[2]->Reset();
+	}  
+
+	if (IM->CheckKeyState(SDLK_SPACE, PRESSED)) {
+		Shoot();
 	}
+
+	if (bullet != nullptr)
+		bullet->Update(dt);
 }
 
 void Player::Render()
 {
-		renderer[currentAnim]->SetPosition(transform.position.x, transform.position.y);
-		renderer[currentAnim]->Update();
-		renderer[currentAnim]->Render();
+	renderer[currentAnim]->SetPosition(transform.position.x, transform.position.y);
+	renderer[currentAnim]->Update();
+	renderer[currentAnim]->Render();
+
+	if(bullet!= nullptr)
+		bullet->Render();
 }
 
 void Player::Shoot()
 {
+	bullet = new PlayerBullet;
+	bullet->SetPosition(this->GetTransform().position.x, this->GetTransform().position.y - 26);
 }
 
 void Player::PlayDeathAnimation()

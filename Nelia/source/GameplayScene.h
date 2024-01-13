@@ -1,18 +1,23 @@
 #pragma once
-#include "Scene.h"
 #include <iostream>
+
+#include "Scene.h"
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "RenderManager.h"
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
 #include "Player.h"
+#include "SmallNormalPlane.h"
+
 
 class GameplayScene : public Scene
 {
 private:
 	Tile background;
 	Player* player;
+
+	std::vector<SmallNormalPlane*> normalPlanes;
 
 public:
 	GameplayScene();
