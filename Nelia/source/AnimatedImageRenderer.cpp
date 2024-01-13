@@ -1,11 +1,13 @@
 #include "AnimatedImageRenderer.h"
 
-AnimatedImageRenderer::AnimatedImageRenderer(float alpha, float rotation, SDL_Rect targetRect, SDL_Rect sourceRect, int fps, bool looping, int totalFrames, Vector2 scale)
+AnimatedImageRenderer::AnimatedImageRenderer(float alpha, float rotation, SDL_Rect targetRect, SDL_Rect sourceRect, int fps, bool looping, int totalFrames, Vector2 scale, int cols=1, int rows=1)
 	: ImageRenderer( color, alpha, rotation, targetRect, sourceRect, scale)
 {
 	this->totalFrames = totalFrames;
 	this->fps = fps;
 	this->looping = looping;
+	this->cols = cols;
+	this->rows = rows;
 }
 
 void AnimatedImageRenderer::Load(std::string path)
@@ -16,10 +18,7 @@ void AnimatedImageRenderer::Load(std::string path)
 	texture = SDL_CreateTextureFromSurface(RM->GetRenderer(), surface);
 	assert(texture);
 
-	cols = 2;
-	rows = 1;
-
-	fps = cols * rows;
+	totalFrames = cols * rows;
 	currentFrame = 0;
 
 	targetRect = SDL_Rect{ 0, 0, 160, 160 };

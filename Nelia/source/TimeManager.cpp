@@ -19,7 +19,7 @@ void TimeManager::Update()
 {
     dt += SDL_GetTicks() - time;
     time = SDL_GetTicks();
-    std::cout << dt << std::endl;
+    std::cout << dt/1000.0f << std::endl;
 }
 
 float TimeManager::GetCtMillis()

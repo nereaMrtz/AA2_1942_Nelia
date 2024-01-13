@@ -8,7 +8,7 @@ void GameObject::LoadTexture(SDL_Renderer* renderer, std::string path, bool isAn
 		this->renderer.push_back(image);
 	}
 	else {
-		AnimatedImageRenderer* animatedImage = new AnimatedImageRenderer(1, 0, targetRect, sourceRect, 60, true, 2, scale);
+		AnimatedImageRenderer* animatedImage = new AnimatedImageRenderer(1, 0, targetRect, sourceRect, 60, true, 2, scale, 1, 1);
 		animatedImage->Load(path.c_str());
 		this->renderer.push_back(animatedImage);
 	}

@@ -10,6 +10,7 @@ Player::Player(Spawner* spawner) : GameObject()
 
 void Player::AddMovement(Vector2 dir)
 {
+	transform.position = transform.position + dir;
 }
 
 void Player::Update(float dt)
@@ -18,6 +19,7 @@ void Player::Update(float dt)
 
 void Player::Render()
 {
+
 }
 
 void Player::Shoot()

@@ -29,5 +29,5 @@ void ImageRenderer::Update()
 
 void ImageRenderer::Render()
 {
-	SDL_RenderCopy(RM->GetRenderer(), texture, &targetRect, &sourceRect);
+	SDL_RenderCopy(RM->GetRenderer(), texture, &sourceRect, &targetRect);
 }

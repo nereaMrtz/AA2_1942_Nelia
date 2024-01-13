@@ -2,7 +2,7 @@
 
 RenderManager* RenderManager::instance = nullptr;
 
-RenderManager::RenderManager(int widht = 224, int height = 240, int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE) //Cuando la ventana se cree que pueda cambiarse el tamaño
+RenderManager::RenderManager(int widht = 512, int height = 512, int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE) //Cuando la ventana se cree que pueda cambiarse el tamaño
 {
 	this->windowWidth = widht;
 	this->windowHeight = height;
@@ -35,6 +35,7 @@ void RenderManager::InitSDL()
 	}
 }
 
+
 void RenderManager::InitWindowAndRenderer(int widht, int height, int flags)
 {
 	int result = SDL_CreateWindowAndRenderer(widht, height, flags, &window, &renderer);
@@ -63,3 +64,5 @@ void RenderManager::Quit()
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
+
+
