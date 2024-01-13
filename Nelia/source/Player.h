@@ -11,12 +11,10 @@ private:
 	float lastFireTime;
 	bool doubleFire;
 	std::vector<SupportPlane*> supportPlanes;
-	Spawner* spawner;
-
 	void PlayRollAnimation();
 
 public:
-	Player(Spawner* spawner);
+	Player();
 	void AddMovement(Vector2 dir);
 	void Update(float dt) override;
 	void Render() override;
