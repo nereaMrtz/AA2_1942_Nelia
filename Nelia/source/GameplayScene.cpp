@@ -3,21 +3,25 @@
 GameplayScene::GameplayScene()
 {
 	background = Tile(false);
-	//frog = Frog();
+	player = new Player(new Spawner());
+	player->SetPosition(RM->windowWidth / 2, RM->windowHeight);
 
-	background.LoadTexture(RM->GetRenderer(), "resources/background.png", false, {0,0, 274, 209}, { 0,0, 274, 209}, {3, 3});
-	//frog.LoadTexture(RM->GetRenderer(), "resources/frog.png", true, {0, 0, 160, 160}, {0, 0, 320, 160}, {1, 1});
+	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, {0,0, 512, 512}, { 0,0, 512, 512}, {10, 10});
+	player->LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 1, 1 });
+	player->transform.position = { 0,0 };
+	//player->GetRenderer()->
 }
 
 void GameplayScene::Update(float dt)
 {
-	//frog.Update();
+	if (IM->CheckKeyState(SDLK_UP, DOWN))
+		player->AddMovement({0, -1});
 }
 
 void GameplayScene::Render(SDL_Renderer*)
 {
-	background.Render();
-	//frog.Render();
+	//background.Render();
+	player->Render();
 }
 
 void GameplayScene::OnEnter()

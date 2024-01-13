@@ -2,8 +2,6 @@
 #include "RenderManager.h"
 #include "Renderer.h"
 
-// Composición de GameObject
-
 class ImageRenderer : public Renderer {
 
 public:

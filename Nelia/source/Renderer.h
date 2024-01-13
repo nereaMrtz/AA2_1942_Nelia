@@ -19,6 +19,9 @@ protected:
 	float alpha;
 	float rotation;
 
+	void SetSourcePos(Vector2 pos );
+	void SetSourceSize(Vector2 size);
+
 public:
 	//******FUNCIONES
 	Renderer();

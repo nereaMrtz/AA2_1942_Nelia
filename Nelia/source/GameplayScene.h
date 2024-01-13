@@ -6,13 +6,13 @@
 #include "RenderManager.h"
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
-//#include "Frog.h"
+#include "Player.h"
 
 class GameplayScene : public Scene
 {
 private:
 	Tile background;
-	//Frog frog;
+	Player* player;
 
 public:
 	GameplayScene();

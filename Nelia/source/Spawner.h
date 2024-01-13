@@ -9,7 +9,6 @@ private:
 	/*float maxSpawnTime;
 	float minSpawnTime;
 	float elapsedTime;
-	Vector2 startPosition;
 	Vector2 startVelocity;*/
 	std::queue<Object*> objectsToSpawn;
 

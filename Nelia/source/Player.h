@@ -4,7 +4,7 @@
 #include "SupportPlane.h"
 #include "EnemyPlane.h"
 
-class Player : GameObject {
+class Player : public GameObject {
 private:
 	bool isRolling;
 	float fireTime;
