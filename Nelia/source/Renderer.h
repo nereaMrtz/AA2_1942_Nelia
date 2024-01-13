@@ -32,12 +32,13 @@ public:
 	//******GETTERS SETTERS
 	void SetColor(SDL_Color color);
 	void SetAlpha(float alpha);
-	void SetPosition(int x, int y);
+	void SetPosition(float x, float y);
 	void SetRotation(float rotation);
 	void SetScale(Vector2 scale);
 	void SetSourcePos(Vector2 pos);
 	void SetSourceSize(Vector2 size);
 	void UpdateTargetRect();
+	virtual void Reset(){}
 
 	SDL_Color GetColor();
 	float GetAlpha();

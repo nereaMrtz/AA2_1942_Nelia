@@ -12,6 +12,7 @@ private:
 	bool doubleFire;
 	std::vector<SupportPlane*> supportPlanes;
 	void PlayRollAnimation();
+	int currentAnim;
 
 public:
 	Player();
