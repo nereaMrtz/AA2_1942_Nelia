@@ -1,15 +1,16 @@
 #pragma once
 #include "GameObject.h"
 #include "Spawner.h"
+#include "SupportPlane.h"
+#include "EnemyPlane.h"
 
-class Player : GameObject
-{
+class Player : GameObject {
 private:
 	bool isRolling;
 	float fireTime;
 	float lastFireTime;
 	bool doubleFire;
-	//std::vector<SupportPlane> supportPlanes;
+	std::vector<SupportPlane*> supportPlanes;
 	Spawner* spawner;
 
 	void PlayRollAnimation();
@@ -25,8 +26,6 @@ public:
 	void PlayTakeOffAnimation();
 	void EnableDoubleFire();
 	void AddSupportPlanes();
-	//void OnCollisionEnter(Object* other) override;
-
-
+	void OnCollisionEnter(Object* other) override;
 };
 

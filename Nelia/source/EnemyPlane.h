@@ -1,5 +1,6 @@
 #pragma once
-#include "Spaw"
+#include "Spawner.h"
+#include "GameObject.h"
 
 class EnemyPlane {
 protected:
@@ -15,9 +16,10 @@ protected:
 	virtual void Shoot();
 
 public:
-	EnemyPlane(int, health, int score, Spawner* spawner);
+	EnemyPlane();
+	EnemyPlane(int health, int score, Spawner* spawner);
 	
-	virtual void Update(float dt); //override;
-	virtual void OnCollisionEnter(Object* other); //override;
+	virtual void Update(float dt);
+	virtual void OnCollisionEnter(Object* other);
 };
 

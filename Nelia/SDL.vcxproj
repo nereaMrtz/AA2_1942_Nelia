@@ -185,6 +185,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
   <ItemGroup>
     <ClCompile Include="source\AABB.cpp" />
     <ClCompile Include="source\AnimatedImageRenderer.cpp" />
+    <ClCompile Include="source\BigGreenPlane.cpp" />
     <ClCompile Include="source\Button.cpp" />
     <ClCompile Include="source\EndTileItem.cpp" />
     <ClCompile Include="source\EnemyBullet.cpp" />
@@ -192,6 +193,8 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\GameEngine.cpp" />
     <ClCompile Include="source\GameObject.cpp" />
     <ClCompile Include="source\GameplayScene.cpp" />
+    <ClCompile Include="source\GrayPowerUp.cpp" />
+    <ClCompile Include="source\GreenPowerUp.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\Main.cpp" />
@@ -199,10 +202,14 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\Object.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerBullet.cpp" />
+    <ClCompile Include="source\PowerUp.cpp" />
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\RenderManager.cpp" />
     <ClCompile Include="source\Rigidbody.cpp" />
     <ClCompile Include="source\SceneManager.cpp" />
+    <ClCompile Include="source\SmallNormalPlane.cpp" />
+    <ClCompile Include="source\SmallRedPlane.cpp" />
+    <ClCompile Include="source\SmallYellowPlane.cpp" />
     <ClCompile Include="source\Spawner.cpp" />
     <ClCompile Include="source\SplashScreenScene.cpp" />
     <ClCompile Include="source\SupportPlane.cpp" />
@@ -212,29 +219,39 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\TimeManager.cpp" />
     <ClCompile Include="source\Transform.cpp" />
     <ClCompile Include="source\Vector2.cpp" />
+    <ClCompile Include="source\Wave.cpp" />
+    <ClCompile Include="source\WhitePowerUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\AABB.h" />
     <ClInclude Include="source\AnimatedImageRenderer.h" />
+    <ClInclude Include="source\BigGreenPlane.h" />
     <ClInclude Include="source\Button.h" />
-    <ClInclude Include="source\DivingTurtles.h" />
     <ClInclude Include="source\EndTileItem.h" />
     <ClInclude Include="source\EnemyBullet.h" />
     <ClInclude Include="source\EnemyPlane.h" />
     <ClInclude Include="source\GameEngine.h" />
     <ClInclude Include="source\GameObject.h" />
     <ClInclude Include="source\GameplayScene.h" />
+    <ClInclude Include="source\GrayPowerUp.h" />
+    <ClInclude Include="source\GreenPowerUp.h" />
     <ClInclude Include="source\ImageRenderer.h" />
     <ClInclude Include="source\InputManager.h" />
     <ClInclude Include="source\MainMenuScene.h" />
+    <ClInclude Include="source\MovementPattern.h" />
+    <ClInclude Include="source\MovementType.h" />
     <ClInclude Include="source\Object.h" />
     <ClInclude Include="source\Player.h" />
     <ClInclude Include="source\PlayerBullet.h" />
+    <ClInclude Include="source\PowerUp.h" />
     <ClInclude Include="source\Renderer.h" />
     <ClInclude Include="source\RenderManager.h" />
     <ClInclude Include="source\Rigidbody.h" />
     <ClInclude Include="source\Scene.h" />
     <ClInclude Include="source\SceneManager.h" />
+    <ClInclude Include="source\SmallNormalPlane.h" />
+    <ClInclude Include="source\SmallRedPlane.h" />
+    <ClInclude Include="source\SmallYellowPlane.h" />
     <ClInclude Include="source\Spawner.h" />
     <ClInclude Include="source\SplashScreenScene.h" />
     <ClInclude Include="source\SupportPlane.h" />
@@ -245,6 +262,9 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClInclude Include="source\Transform.h" />
     <ClInclude Include="source\UIText.h" />
     <ClInclude Include="source\Vector2.h" />
+    <ClInclude Include="source\Wave.h" />
+    <ClInclude Include="source\WaveType.h" />
+    <ClInclude Include="source\WhitePowerUp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "SupportPlane.h"
 
-SupportPlane::SupportPlane(bool isLeft)
+SupportPlane::SupportPlane(bool isLeft) : GameObject()
 {
 }
 

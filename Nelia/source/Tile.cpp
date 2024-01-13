@@ -8,11 +8,11 @@ void Tile::Update(float dt)
 {
 
 }
+
 Tile::Tile()
 {
 	isLethal = false;
 }
-
 
 void Tile::Render()
 {

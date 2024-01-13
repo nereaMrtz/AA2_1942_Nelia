@@ -8,7 +8,11 @@ void EnemyPlane::Shoot()
 {
 }
 
-EnemyPlane::EnemyPlane(int, health, int score, Spawner* spawner)
+EnemyPlane::EnemyPlane()
+{
+}
+
+EnemyPlane::EnemyPlane(int health, int score, Spawner* spawner)
 {
 }
 

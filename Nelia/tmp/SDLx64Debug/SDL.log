@@ -1,53 +1,33 @@
-﻿  AABB.cpp
-  AnimatedImageRenderer.cpp
+﻿  BigGreenPlane.cpp
   Button.cpp
   EndTileItem.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\EndTileItem.cpp(4): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
+  EnemyBullet.cpp
+  EnemyPlane.cpp
   GameEngine.cpp
   GameObject.cpp
   GameplayScene.cpp
-  ImageRenderer.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\ImageRenderer.cpp(19,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\ImageRenderer.cpp(20,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  InputManager.cpp
+  GrayPowerUp.cpp
+  GreenPowerUp.cpp
   Main.cpp
-  MainMenuScene.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(6,43): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(21,22): warning C4305: '+=': truncamiento de 'double' a 'float'
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(33,43): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-  Object.cpp
   Player.cpp
-  Renderer.cpp
-  RenderManager.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\RenderManager.cpp(7,22): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\RenderManager.cpp(8,23): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  Rigidbody.cpp
-  SceneManager.cpp
+  PlayerBullet.cpp
+  PowerUp.cpp
+  SmallNormalPlane.cpp
+  SmallRedPlane.cpp
+  SmallYellowPlane.cpp
   Spawner.cpp
-  SplashScreenScene.cpp
-  TextObject.cpp
+  SupportPlane.cpp
+  Tile.cpp
   Generando código...
   Compilando...
-  TextRenderer.cpp
-  Tile.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Tile.cpp(4): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Tile.cpp(12): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
-  TimeManager.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\TimeManager.cpp(21,24): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-  Transform.cpp
-  Vector2.cpp
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Vector2.cpp(15,8): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Vector2.cpp(16,8): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Wave.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Wave.h(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Wave.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  WhitePowerUp.cpp
   Generando código...
+  SDL.vcxproj -> D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\binaries\x64Debug\SDL.exe
+  0 archivo(s) copiado(s)
+  0 archivo(s) copiado(s)
+  0 archivo(s) copiado(s)
+  0 archivo(s) copiado(s)
+  0 archivo(s) copiado(s)

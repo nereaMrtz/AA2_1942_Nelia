@@ -20,6 +20,7 @@ private:
 
 public:
 	Rigidbody(Transform* transform);
+	Rigidbody() = default;
 	~Rigidbody();
 
 	void AddCollider(AABB collider);

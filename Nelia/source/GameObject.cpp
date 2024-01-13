@@ -1,7 +1,5 @@
 #include "GameObject.h"
 
-
-
 void GameObject::LoadTexture(SDL_Renderer* renderer, std::string path, bool isAnimated, SDL_Rect targetRect, SDL_Rect sourceRect, Vector2 scale)
 {
 	if (!isAnimated) {
@@ -22,9 +20,18 @@ void GameObject::SetPosition(int x, int y)
 	destinationRect.y = y;*/
 }
 
+void GameObject::Update(float dt)
+{
+}
+
 void GameObject::Render()
 {
 	
+}
+
+Renderer* GameObject::GetRenderer()
+{
+	return nullptr;
 }
 
 //Renderer* GameObject::GetRenderer()
