@@ -1,25 +1,53 @@
-﻿  Button.cpp
+﻿  AABB.cpp
+  AnimatedImageRenderer.cpp
+  Button.cpp
   EndTileItem.cpp
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\EndTileItem.cpp(4,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\EndTileItem.cpp(4): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
   GameEngine.cpp
   GameObject.cpp
   GameplayScene.cpp
+  ImageRenderer.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\ImageRenderer.cpp(19,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\ImageRenderer.cpp(20,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  InputManager.cpp
   Main.cpp
+  MainMenuScene.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(6,43): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(21,22): warning C4305: '+=': truncamiento de 'double' a 'float'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\MainMenuScene.cpp(33,43): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Object.cpp
   Player.cpp
+  Renderer.cpp
+  RenderManager.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\RenderManager.cpp(7,22): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\RenderManager.cpp(8,23): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Rigidbody.cpp
+  SceneManager.cpp
   Spawner.cpp
+  SplashScreenScene.cpp
+  TextObject.cpp
+  Generando código...
+  Compilando...
+  TextRenderer.cpp
   Tile.cpp
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Tile.cpp(4,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Tile.cpp(12,1): error C2280: 'GameObject::GameObject(void)': attempting to reference a deleted function
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : compiler has generated 'GameObject::GameObject' here
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\GameObject.h(22,1): message : 'GameObject::GameObject(void)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'Object::Object(void)'
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(36,1): message : 'Object::Object(void)': function was implicitly deleted because a data member 'Object::physics' has either no appropriate default constructor or overload resolution was ambiguous
-C:\Users\LaboratoriVR\Desktop\Nerea\AA2_1942_Nelia\Nelia\source\Object.h(15,12): message : see declaration of 'Object::physics'
-  Generating Code...
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Tile.cpp(4): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Tile.cpp(12): error C2280: 'GameObject::GameObject(void)': se está intentando hacer referencia a una función eliminada.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14): message : vea la declaración de 'GameObject::GameObject'
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\GameObject.h(14,2): message : "GameObject::GameObject(void)": la función se eliminó implícitamente porque un objeto clase base invoca a una función "Object::Object(void)" eliminada o inaccesible.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(17,2): message : "Object::Object(void)": la función se eliminó implícitamente porque un objeto "Object::physics" miembro de datos no tiene ningún elemento constructor predeterminado adecuado o la resolución de sobrecarga era ambigua.
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Object.h(15): message : vea la declaración de 'Object::physics'
+  TimeManager.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\TimeManager.cpp(21,24): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Transform.cpp
+  Vector2.cpp
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Vector2.cpp(15,8): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+D:\ENTI\Recus de 2ndo\Progra\AA2_1942_Nelia\Nelia\source\Vector2.cpp(16,8): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Generando código...
