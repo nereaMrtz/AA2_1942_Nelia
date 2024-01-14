@@ -41,11 +41,12 @@ void Object::SetVelocity(Vector2 v)
 
 bool Object::IsPendingDestroy()
 {
-    return false;
+    return isPendingDestroy;
 }
 
 void Object::Destroy()
 {
+    isPendingDestroy = true;
 }
 
 void Object::OnCollisionEnter(Object* other)

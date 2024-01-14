@@ -5,7 +5,6 @@ GameplayScene::GameplayScene()
 	background = Tile(false);
 	player = new Player();
 
-	// --------- PARTE NEREA
 	for (int i = 0; i < 4; i++)
 	{
 		int random = rand() % 5 + 2;
@@ -19,21 +18,17 @@ GameplayScene::GameplayScene()
 
 	}
 
-	// ----------
-
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
-
-	//player->SetPosition(RM->windowWidth / 2, RM->windowHeight/2);
-
-	//player->SetRigidboy( Rigidbody(&(player->GetTransform()), Vector2(player->transform.position.x - 16, player->transform.position.y - 12), Vector2(32, 24)));
 }
 
 void GameplayScene::Update(float dt)
 {
 	player->Update(dt);
 
-	// ------- PARTE NEREA
+	int i = 0;
 	for (auto enemy : normalPlanes) {
+		enemy->Update(dt);
+
 		if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 
 			std::cout << "HA CHOCAO" << std::endl;
@@ -43,10 +38,21 @@ void GameplayScene::Update(float dt)
 			std::cout << "no." << std::endl;
 		}
 		
-		enemy->Update(dt);
+		for (auto bullet : player->GetBullets()) {
+			if (bullet->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
+				enemy->Destroy();
+			}
+		}
+		i++;
 	}
-	
-	// -------
+
+	for (auto it = normalPlanes.begin(); it != normalPlanes.end(); it++) {
+		if ((*it)->IsPendingDestroy()) {
+			normalPlanes.erase(it);
+			it = normalPlanes.begin();
+		}
+	}
+
 }
 
 void GameplayScene::Render(SDL_Renderer*)
@@ -54,11 +60,8 @@ void GameplayScene::Render(SDL_Renderer*)
 	background.Render();
 	player->Render();
 
-	// -------- PARTE NEREA
 	for (auto enemy : normalPlanes)
 		enemy->Render();
-
-	// ----------
 }
 
 void GameplayScene::OnEnter()

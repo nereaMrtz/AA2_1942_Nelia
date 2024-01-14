@@ -44,6 +44,5 @@ SmallNormalPlane::SmallNormalPlane(MovementType mT)
 void SmallNormalPlane::Update(float dt)
 {
 	UpdateMovementPattern(dt);
-	//SetPosition(transform.position.x + dt * 150, transform.position.y + dt * 150);
 	physics.Update(dt);
 }

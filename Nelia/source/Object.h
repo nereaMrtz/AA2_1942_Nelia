@@ -21,7 +21,6 @@ public:
 	Transform GetTransform();
 	Rigidbody GetRigidbody();
 
-
 	void SetPosition(Vector2 p);
 	void SetRotation(float r);
 	void SetScale(Vector2 s);
@@ -31,6 +30,6 @@ public:
 
 	bool IsPendingDestroy();
 
-	virtual void Destroy();
+	void Destroy();
 	virtual void OnCollisionEnter(Object* other);
 };

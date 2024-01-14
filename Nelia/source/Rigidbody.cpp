@@ -17,52 +17,12 @@ void Rigidbody::AddCollider(AABB* collider)
 
 bool Rigidbody::CheckCollision(AABB* other)
 {
-   /*
-    //Top right corner
-    bool collision = (collider->GetTopLeft().x < other->GetTopLeft().x && other->GetTopLeft().x < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < other->GetTopLeft().y && other->GetTopLeft().y < (collider->GetTopLeft().y + collider->GetSize().y));
-    if (collision)
-        return true;
+   
+    return  collider->GetTopLeft().x + collider->GetSize().x > other->GetTopLeft().x &&
+        collider->GetTopLeft().x < other->GetTopLeft().x + other->GetSize().x &&
+        collider->GetTopLeft().y + collider->GetSize().y > other->GetTopLeft().y &&
+        collider->GetTopLeft().y < other->GetTopLeft().y + other->GetSize().y;
 
-    //Top left corner
-    collision = (collider->GetTopLeft().x < (other->GetTopLeft().x + other->GetSize().x)) && (other->GetTopLeft().x + other->GetSize().x) < (collider->GetTopLeft().x + collider->GetSize().x) && (collider->GetTopLeft().y < other->GetTopLeft().y && other->GetTopLeft().y < (collider->GetTopLeft().y + collider->GetSize().y));
-    if (collision)
-        return true;
-
-    //Bottom right corner
-    collision = (collider->GetTopLeft().x < other->GetTopLeft().x && other->GetTopLeft().x < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < (other->GetTopLeft().y + other->GetSize().y) && (other->GetTopLeft().y + other->GetSize().y) < (collider->GetTopLeft().y + collider->GetSize().y));
-    if (collision)
-        return true;
-
-    //Bottom left corner
-    collision = (collider->GetTopLeft().x < (other->GetTopLeft().x + other->GetSize().x) && (other->GetTopLeft().x + other->GetSize().x) < (collider->GetTopLeft().x + collider->GetSize().x)) && (collider->GetTopLeft().y < (other->GetTopLeft().y + other->GetSize().y) && (other->GetTopLeft().y + other->GetSize().y) < (collider->GetTopLeft().y + collider->GetSize().y));
-    if (collision)
-        return true;
-
-        */
-    //Top right
-    
-    //esquina up derecha
-   // collider->GetTopLeft().x + collider->GetSize().x;
-    // esquina inf derecha
-   // collider->GetTopLeft() + collider->GetSize();
-    //abajo izqu
-   // collider->GetTopLeft().y + collider->GetSize().y;
-
-
-    //bool collision = (collider->GetTopLeft().x + collider->GetSize().x > other->GetTopLeft().y && collider->GetTopLeft().x + collider->GetSize().x > other->GetTopLeft().y + other->GetSize().y);
-      //  if (collision) {
-      //      return true;
-      //  }
-
-       // bool touching([objectType] A, [objectType] B) {
-            return  collider->GetTopLeft().x + collider->GetSize().x > other->GetTopLeft().x &&
-               collider->GetTopLeft().x < other->GetTopLeft().x + other->GetSize().x &&
-                collider->GetTopLeft().y + collider->GetSize().y > other->GetTopLeft().y &&
-                collider->GetTopLeft().y < other->GetTopLeft().y + other->GetSize().y;
-       // }
-
-   // return false;
-    
 }
 
 bool Rigidbody::CheckOverlappingPoint(Vector2 point)

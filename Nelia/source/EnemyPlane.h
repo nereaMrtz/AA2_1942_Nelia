@@ -20,6 +20,7 @@ protected:
 
 public:
 	EnemyPlane();
+	~EnemyPlane();
 	EnemyPlane(int health, int score, Spawner* spawner);
 	
 	virtual void Update(float dt);
