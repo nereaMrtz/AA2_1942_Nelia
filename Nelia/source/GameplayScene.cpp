@@ -56,7 +56,7 @@ void GameplayScene::Render(SDL_Renderer*)
 void GameplayScene::OnEnter()
 {
 	LevelLoader loader;
-	loader.LoadWaves(".. / resources/stage_o.xml", levelTime);
+	loader.LoadWaves("resources/stage_0.xml", levelTime);
 }
 
 

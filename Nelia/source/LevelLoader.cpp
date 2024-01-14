@@ -1,8 +1,12 @@
 #include "LevelLoader.h"
 
+LevelLoader::LevelLoader()
+{
+}
+
 std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime )
 {
-		std::vector<Wave*> waves;
+	std::vector<Wave*> waves;
 
 	rapidxml::xml_document<> doc;
 	std::ifstream file(path);
@@ -19,22 +23,27 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime )
 		levelTime = (stof((std::string)pRoot->first_node()->value()));
 		std::cout << levelTime << std::endl;
 
-		/*for (rapidxml::xml_node<>* pNode = pRoot->first_node()->first_node(); pNode; pNode = pNode->next_sibling()) {
+		for (rapidxml::xml_node<>* pNode = pRoot->first_node()->next_sibling(); pNode; pNode = pNode->next_sibling()) {
 
-			float startTime = stof((std::string)pRoot->value());
-			pRoot = pRoot->next_sibling();
-			std::string pattern = (std::string)pRoot->first_attribute()->value();
-			std::string type = (std::string)pRoot->value();
-			pRoot = pRoot->next_sibling();
-			int amount = stoi((std::string)pRoot->value());
+			float startTime = stof((std::string)pNode->first_node()->value());
+			//pRoot = pRoot->next_sibling();
+			std::string pattern;
+			if(pNode->first_node()->next_sibling()->first_attribute())
+				pattern = pNode->first_node()->next_sibling()->first_attribute()->name();
+			std::string type = pNode->first_node()->next_sibling()->value();
+			//pRoot = pRoot->next_sibling();
+			int amount = std::stoi(pNode->first_node()->next_sibling()->next_sibling()->value());
 
 			std::cout << startTime << std::endl;
 			std::cout << pattern << std::endl;
 			std::cout << type << std::endl;
 			std::cout << type << std::endl;
-		}*/
+		}
 
 
+	}
+	else {
+		std::cout << path << std::endl;
 	}
 
 	return waves;
