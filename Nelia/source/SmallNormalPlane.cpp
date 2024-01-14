@@ -21,7 +21,6 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 
 SmallNormalPlane::SmallNormalPlane(MovementType mT)
 {
-	int random = rand() % 1;
 	switch (mT)
 	{
 		case V:
@@ -36,7 +35,6 @@ SmallNormalPlane::SmallNormalPlane(MovementType mT)
 		break;
 	}
 
-	std::cout << random << std::endl;
 }
 
 void SmallNormalPlane::Update(float dt)

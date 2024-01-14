@@ -1,3 +1,3 @@
 #pragma once
-
-enum class MovementPattern {A, B, C, D, E};
+//V= v, O= curve, I = straight
+enum class MovementPattern { V, O, I };
