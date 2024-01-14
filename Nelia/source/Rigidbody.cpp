@@ -16,8 +16,7 @@ void Rigidbody::AddCollider(AABB* collider)
 }
 
 bool Rigidbody::CheckCollision(AABB* other)
-{
-   
+{   
     return  collider->GetTopLeft().x + collider->GetSize().x > other->GetTopLeft().x &&
         collider->GetTopLeft().x < other->GetTopLeft().x + other->GetSize().x &&
         collider->GetTopLeft().y + collider->GetSize().y > other->GetTopLeft().y &&

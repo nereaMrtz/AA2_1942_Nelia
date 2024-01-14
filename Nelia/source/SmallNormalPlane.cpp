@@ -2,7 +2,6 @@
 
 void SmallNormalPlane::UpdateMovementPattern(float dt)
 {
-	
 	switch (movementType)
 	{
 	case V:
@@ -18,7 +17,6 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	default:
 		break;
 	}
-
 }
 
 SmallNormalPlane::SmallNormalPlane(MovementType mT)

@@ -53,6 +53,13 @@ void GameplayScene::Update(float dt)
 		}
 	}
 
+	//// player->GetBullets().begin() --> apunta a una instancia temporal destroyed
+	//for (auto it = player->GetBullets().begin(); it != player->GetBullets().end(); it++) {
+	//	if ((*it)->IsPendingDestroy()) {
+	//		player->GetBullets().erase(it);
+	//		it = player->GetBullets().begin();
+	//	}
+	//}
 }
 
 void GameplayScene::Render(SDL_Renderer*)
