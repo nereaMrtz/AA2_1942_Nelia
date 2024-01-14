@@ -2,24 +2,29 @@
 #include "WaveType.h";
 #include "MovementPattern.h";
 #include "Player.h"
+#include "SmallNormalPlane.h"
+#include "SmallRedPlane.h"
+#include "SmallYellowPlane.h"
+#include "BigGreenPlane.h"
 
 class Wave {
 private:
 	float startTime;
+	float timer;
 
 	WaveType type;
 	MovementPattern movementPattern;
 
 	int amount;
 
-	std::vector<EnemyPlane> spwnedPlanes;
+	std::vector<EnemyPlane*> spawnedPlanes;
 
 	bool isFinished;
 
 public:
 	Wave(float startTime, WaveType type, MovementPattern movementPattern, int amount);
 
-	void Update(float dt, const Player& pj, Spawner* spawner);
+	void Update(float dt);
 	void Start();
 	void IsFinished();
 };

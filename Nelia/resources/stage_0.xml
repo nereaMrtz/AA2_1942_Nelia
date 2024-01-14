@@ -8,7 +8,7 @@
   </wave>
   <wave>
     <spawnTime>20</spawnTime>
-    <type pattern="O">normal</type>
+    <type pattern="I">normal</type>
     <amount>2</amount>
   </wave>
   <wave>

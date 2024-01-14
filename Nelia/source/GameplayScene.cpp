@@ -2,23 +2,8 @@
 
 GameplayScene::GameplayScene()
 {
-
-
 	background = Tile(false);
 	player = new Player();
-
-	for (int i = 0; i < 4; i++)
-	{
-		int random = rand() % 5 + 2;
-
-		auto enemy = new SmallNormalPlane(V);
-		enemy->LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,160, 512, 512 }, { 1, 1 }, 0, 0, false, 0);
-		enemy->ChangeSourcePosSize({ 0,0 }, { 24,16 }, 0);
-		enemy->SetPosition(RM->windowWidth / random, RM->windowHeight / 6);
-		//std::cout << random <<" "<< random << std::endl;
-		normalPlanes.push_back(enemy);
-
-	}
 
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
 }
@@ -56,7 +41,6 @@ void GameplayScene::Update(float dt)
 		
 	}
 
-	// player->GetBullets().begin() --> apunta a una instancia temporal destroyed
 	for (int i = 0; i < player->GetBullets().size(); i++) {
 		if (player->GetBullets().at(i)->IsPendingDestroy()) {
 			player->GetBullets().erase(player->GetBullets().begin() + i);
@@ -79,7 +63,6 @@ void GameplayScene::OnEnter()
 	LevelLoader loader;
 	loader.LoadWaves("resources/stage_0.xml", levelTime);
 }
-
 
 
 void GameplayScene::OnExit()
