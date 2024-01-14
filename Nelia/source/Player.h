@@ -34,6 +34,6 @@ public:
 	void AddSupportPlanes();
 	void OnCollisionEnter(Object* other) override;
 
-	std::vector<PlayerBullet*> GetBullets();
+	std::vector<PlayerBullet*>& GetBullets();
 };
 

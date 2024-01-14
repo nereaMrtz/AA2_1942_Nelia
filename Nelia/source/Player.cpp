@@ -115,7 +115,7 @@ void Player::OnCollisionEnter(Object* other)
 {
 }
 
-std::vector<PlayerBullet*> Player::GetBullets()
+std::vector<PlayerBullet*>& Player::GetBullets()
 {
 	return bullets;
 }

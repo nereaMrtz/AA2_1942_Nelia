@@ -25,7 +25,6 @@ void GameplayScene::Update(float dt)
 {
 	player->Update(dt);
 
-	int i = 0;
 	for (auto enemy : normalPlanes) {
 		enemy->Update(dt);
 
@@ -41,25 +40,27 @@ void GameplayScene::Update(float dt)
 		for (auto bullet : player->GetBullets()) {
 			if (bullet->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 				enemy->Destroy();
+				bullet->Destroy();
 			}
 		}
-		i++;
 	}
 
-	for (auto it = normalPlanes.begin(); it != normalPlanes.end(); it++) {
-		if ((*it)->IsPendingDestroy()) {
-			normalPlanes.erase(it);
-			it = normalPlanes.begin();
+	for (int i = 0; i < normalPlanes.size(); i++) {
+		
+		if (normalPlanes.at(i)->IsPendingDestroy()) {
+			normalPlanes.erase(normalPlanes.begin()+i);
+			i = 0;
+		}
+		
+	}
+
+	// player->GetBullets().begin() --> apunta a una instancia temporal destroyed
+	for (int i = 0; i < player->GetBullets().size(); i++) {
+		if (player->GetBullets().at(i)->IsPendingDestroy()) {
+			player->GetBullets().erase(player->GetBullets().begin() + i);
+			i = 0;
 		}
 	}
-
-	//// player->GetBullets().begin() --> apunta a una instancia temporal destroyed
-	//for (auto it = player->GetBullets().begin(); it != player->GetBullets().end(); it++) {
-	//	if ((*it)->IsPendingDestroy()) {
-	//		player->GetBullets().erase(it);
-	//		it = player->GetBullets().begin();
-	//	}
-	//}
 }
 
 void GameplayScene::Render(SDL_Renderer*)
