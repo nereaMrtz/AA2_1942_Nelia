@@ -30,6 +30,8 @@ void GameObject::SetPosition(int x, int y)
 
 void GameObject::Update(float dt)
 {
+	physics.Update(dt);
+	
 }
 
 void GameObject::Render()

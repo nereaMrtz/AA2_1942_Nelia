@@ -10,7 +10,7 @@ void EnemyPlane::Shoot()
 
 EnemyPlane::EnemyPlane()
 {
-	//physics = Rigidbody(&transform, Vector2(transform.position.x - 12, transform.position.y - 8), Vector2(32, 24));
+	physics = Rigidbody(&transform, Vector2(transform.position.x, transform.position.y), Vector2(32, 24));
 }
 
 EnemyPlane::EnemyPlane(int health, int score, Spawner* spawner)

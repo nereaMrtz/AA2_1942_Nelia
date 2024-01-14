@@ -17,7 +17,7 @@ Player::Player() : GameObject()
 
 	SetPosition(RM->windowWidth / 2, RM->windowHeight / 2);
 
-	physics = Rigidbody(&transform, Vector2(transform.position.x-16, transform.position.y-12), Vector2(32,24));
+	physics = Rigidbody(&transform, Vector2(transform.position.x, transform.position.y), Vector2(32,24));
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -66,7 +66,7 @@ void Player::Update(float dt)
 		Shoot();
 	}
 
-
+	physics.Update(dt);
 
 	bulletTimer += TM->GetDtSec();
 }

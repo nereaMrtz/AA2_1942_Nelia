@@ -34,9 +34,13 @@ void GameplayScene::Update(float dt)
 
 	// ------- PARTE NEREA
 	for (auto enemy : normalPlanes) {
-		if (player.p ->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
+		if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 
 			std::cout << "HA CHOCAO" << std::endl;
+		}
+		else
+		{
+			std::cout << "no." << std::endl;
 		}
 		
 		enemy->Update(dt);

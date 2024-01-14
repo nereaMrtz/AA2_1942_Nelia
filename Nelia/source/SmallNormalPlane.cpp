@@ -6,7 +6,7 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	switch (movementType)
 	{
 	case V:
-		SetPosition(transform.position.x + dt * 500, transform.position.y + dt * 500);
+		SetPosition(transform.position.x + dt * 200, transform.position.y + dt * 200);
 		//transform.position.x = -transform.position.x;
 		break;
 	case CURVE:
@@ -45,5 +45,5 @@ void SmallNormalPlane::Update(float dt)
 {
 	UpdateMovementPattern(dt);
 	//SetPosition(transform.position.x + dt * 150, transform.position.y + dt * 150);
-
+	physics.Update(dt);
 }
