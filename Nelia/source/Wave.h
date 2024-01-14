@@ -24,7 +24,8 @@ private:
 public:
 	Wave(float startTime, WaveType type, MovementPattern movementPattern, int amount);
 
-	void Update(float dt);
+	std::vector<EnemyPlane*> Update(float dt);
+	void Render();
 	void Start();
 	void IsFinished();
 };

@@ -11,6 +11,9 @@ GameplayScene::GameplayScene()
 void GameplayScene::Update(float dt)
 {
 	player->Update(dt);
+	for (auto wave : waves) {
+		normalPlanes = wave->Update(dt);
+	}
 
 	for (auto enemy : normalPlanes) {
 		enemy->Update(dt);
@@ -54,14 +57,15 @@ void GameplayScene::Render(SDL_Renderer*)
 	background.Render();
 	player->Render();
 
-	for (auto enemy : normalPlanes)
-		enemy->Render();
+	for (auto wave : waves)
+		wave->Render();
 }
 
 void GameplayScene::OnEnter()
 {
 	LevelLoader loader;
-	loader.LoadWaves("resources/stage_0.xml", levelTime);
+	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+
 }
 
 

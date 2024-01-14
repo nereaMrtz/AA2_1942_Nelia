@@ -17,6 +17,5 @@ public:
 	SmallNormalPlane(MovementPattern mT);
 
 	virtual void Update(float dt) override;
-	void SpawnPlane(std::vector<SmallNormalPlane*>& normalPlane, int amount);
 };
 

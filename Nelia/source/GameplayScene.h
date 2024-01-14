@@ -18,7 +18,8 @@ class GameplayScene : public Scene
 private:
 	Tile background;
 	Player* player;
-	std::vector<SmallNormalPlane*> normalPlanes;
+	std::vector<EnemyPlane*> normalPlanes;
+	std::vector<Wave*> waves;
 
 public:
 	GameplayScene();
