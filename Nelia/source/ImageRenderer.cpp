@@ -5,6 +5,11 @@ ImageRenderer::ImageRenderer(SDL_Color color, float alpha, float rotation, SDL_R
 	this->scale = scale;
 }
 
+ImageRenderer::~ImageRenderer()
+{
+	SDL_DestroyTexture(texture);
+}
+
 void ImageRenderer::Load(std::string path)
 {
 	SDL_Surface* surface = IMG_Load(path.c_str());

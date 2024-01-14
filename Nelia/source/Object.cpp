@@ -9,6 +9,11 @@ Transform Object::GetTransform()
     return transform;
 }
 
+Rigidbody Object::GetRigidbody()
+{
+    return physics;
+}
+
 
 void Object::SetPosition(Vector2 p)
 {
@@ -36,11 +41,12 @@ void Object::SetVelocity(Vector2 v)
 
 bool Object::IsPendingDestroy()
 {
-    return false;
+    return isPendingDestroy;
 }
 
 void Object::Destroy()
 {
+    isPendingDestroy = true;
 }
 
 void Object::OnCollisionEnter(Object* other)

@@ -24,6 +24,7 @@ private:
 public:
 	AnimatedImageRenderer(float alpha, float rotation, SDL_Rect targetRect, SDL_Rect sourceRect, int fps, bool looping, Vector2 scale, int cols, int rows, int offset);
 	
+
 	virtual void Load(std::string path) override;
 	virtual void Update() override;
 	virtual void Render() override;

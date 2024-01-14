@@ -6,7 +6,7 @@
 class Rigidbody
 {
 private:
-	std::vector<AABB> colliders;
+	AABB* collider;
 	Transform* transform;
 
 	Vector2 velocity;
@@ -19,12 +19,12 @@ private:
 	float angularDrag;
 
 public:
-	Rigidbody(Transform* transform);
+	Rigidbody(Transform* trans, Vector2 topLeft, Vector2 size);
 	Rigidbody() = default;
 	~Rigidbody();
 
-	void AddCollider(AABB collider);
-	bool CheckCollision(const Rigidbody* other);
+	void AddCollider(AABB* collider);
+	bool CheckCollision( AABB* other);
 	bool CheckOverlappingPoint(Vector2 point);
 
 	void Update(float dt);
@@ -36,5 +36,7 @@ public:
 	void SetVelocity(Vector2 vel);
 	void SetLinearDrag(float linearD);
 	void SetAngularDrag(float angularD);
+
+	AABB* GetCollider();
 };
 

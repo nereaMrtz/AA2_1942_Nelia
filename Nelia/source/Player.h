@@ -7,14 +7,18 @@
 
 class Player : public GameObject {
 private:
-	bool isRolling;
 	float fireTime;
 	float lastFireTime;
+	float bulletTimer;
+
+	bool isRolling;
 	bool doubleFire;
-	std::vector<SupportPlane*> supportPlanes;
-	void PlayRollAnimation();
+
 	int currentAnim;
 
+	void PlayRollAnimation();
+
+	std::vector<SupportPlane*> supportPlanes;
 	std::vector<PlayerBullet*> bullets;
 
 public:
@@ -23,13 +27,13 @@ public:
 	void Update(float dt) override;
 	void Render() override;
 	void Shoot();
-	void PlayDeathAnimation() /*override*/;
+	void PlayDeathAnimation();
 	void PlayLandingAnimation();
 	void PlayTakeOffAnimation();
 	void EnableDoubleFire();
 	void AddSupportPlanes();
 	void OnCollisionEnter(Object* other) override;
 
-	std::vector<PlayerBullet*> GetBullets();
+	std::vector<PlayerBullet*>& GetBullets();
 };
 

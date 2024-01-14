@@ -19,16 +19,17 @@ public:
 	virtual void Render() = 0;
 
 	Transform GetTransform();
-
+	Rigidbody GetRigidbody();
 
 	void SetPosition(Vector2 p);
 	void SetRotation(float r);
 	void SetScale(Vector2 s);
 	void SetTransform(Transform t);
 	void SetVelocity(Vector2 v);
+	void SetRigidboy(Rigidbody rig);
 
 	bool IsPendingDestroy();
 
-	virtual void Destroy();
+	void Destroy();
 	virtual void OnCollisionEnter(Object* other);
 };
