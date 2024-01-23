@@ -12,9 +12,9 @@ void GameplayScene::Update(float dt)
 {
 	player->Update(dt);
 	for (auto wave : waves) {
-		normalPlanes = wave->Update(dt);
+		normalPlanes = wave->SpawnPlanes(dt);
 	}
-
+	//std::cout << "aaaa"<< std::endl;
 	for (auto enemy : normalPlanes) {
 		enemy->Update(dt);
 
@@ -57,8 +57,8 @@ void GameplayScene::Render(SDL_Renderer*)
 	background.Render();
 	player->Render();
 
-	for (auto wave : waves)
-		wave->Render();
+	for (auto enemy : normalPlanes)
+		enemy->Render();
 }
 
 void GameplayScene::OnEnter()

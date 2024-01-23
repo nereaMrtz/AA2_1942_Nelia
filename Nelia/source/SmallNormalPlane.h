@@ -16,6 +16,6 @@ protected:
 public:
 	SmallNormalPlane(MovementPattern mT);
 
-	virtual void Update(float dt) override;
+	void Update(float dt) override;
 };
 

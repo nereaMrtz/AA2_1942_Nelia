@@ -2,7 +2,7 @@
 <stage>
   <totalTime>50</totalTime>
   <wave>
-    <spawnTime>15</spawnTime>
+    <spawnTime>0</spawnTime>
     <type pattern="V">normal</type>
     <amount>5</amount>
   </wave>

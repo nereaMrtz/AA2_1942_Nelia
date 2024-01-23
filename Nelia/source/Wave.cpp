@@ -10,17 +10,14 @@ Wave::Wave(float startTime, WaveType type, MovementPattern movementPattern, int 
 	timer = 0;
 }
 
-std::vector<EnemyPlane*> Wave::Update(float dt)
+std::vector<EnemyPlane*> Wave::SpawnPlanes(float dt)
 {
 	timer += dt;
 
 
 	if (timer >= startTime) {
 		for (int i = 0; i < amount; i++) {
-			SmallNormalPlane* newPlane = new SmallNormalPlane(movementPattern);
-			spawnedPlanes.push_back(newPlane);
-
-
+	
 			switch (type)
 			{
 			case WaveType::normal: {
@@ -48,8 +45,14 @@ std::vector<EnemyPlane*> Wave::Update(float dt)
 			timer = 0;
 	}
 
-
 	return spawnedPlanes;
+}
+
+void Wave::Update(float dt)
+{
+	for (auto plane : spawnedPlanes) {
+		plane->Update(dt);
+	}
 }
 
 void Wave::Render()

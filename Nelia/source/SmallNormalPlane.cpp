@@ -5,8 +5,9 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	switch (movementType)
 	{
 	case MovementPattern::V:
-		SetPosition(transform.position.x + dt * 100, transform.position.y + dt * 100);
-		//transform.position.x = -transform.position.x;
+		//SetPosition(transform.position.x + dt * 100, transform.position.y + dt * 100);
+		transform.position.x += dt * 100;
+		transform.position.y += dt * 100;
 		break;
 	case MovementPattern::O:
 
