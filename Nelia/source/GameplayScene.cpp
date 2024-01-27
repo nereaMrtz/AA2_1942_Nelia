@@ -6,15 +6,29 @@ GameplayScene::GameplayScene()
 	player = new Player();
 
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
+
+	LevelLoader loader;
+	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+
+	timer = 0;
+	spawnerTime = 0;
+	spawn = false;
 }
 
 void GameplayScene::Update(float dt)
 {
+
 	player->Update(dt);
-	for (auto wave : waves) {
-		normalPlanes = wave->SpawnPlanes(dt);
+
+	for (int i = 0; i < waves.size(); i++) {
+
+		if(waves[1])
+		normalPlanes = waves[i]->SpawnPlanes(dt);
+			
 	}
-	//std::cout << "aaaa"<< std::endl;
+
+	//std::cout << timer << std::endl;
+
 	for (auto enemy : normalPlanes) {
 		enemy->Update(dt);
 
@@ -50,6 +64,7 @@ void GameplayScene::Update(float dt)
 			i = 0;
 		}
 	}
+	timer += dt;
 }
 
 void GameplayScene::Render(SDL_Renderer*)
@@ -63,8 +78,8 @@ void GameplayScene::Render(SDL_Renderer*)
 
 void GameplayScene::OnEnter()
 {
-	LevelLoader loader;
-	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+	//LevelLoader loader;
+	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 
 }
 

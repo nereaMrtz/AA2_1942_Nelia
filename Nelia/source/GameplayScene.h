@@ -21,6 +21,12 @@ private:
 	std::vector<EnemyPlane*> normalPlanes;
 	std::vector<Wave*> waves;
 
+	float timer;
+
+	float spawnerTime;
+
+	bool spawn;
+
 public:
 	GameplayScene();
 	virtual void Update(float dt) override;

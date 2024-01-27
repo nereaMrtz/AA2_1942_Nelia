@@ -8,16 +8,16 @@ Wave::Wave(float startTime, WaveType type, MovementPattern movementPattern, int 
 	this->amount = amount;
 
 	timer = 0;
+	spawn = true; 
 }
 
-std::vector<EnemyPlane*> Wave::SpawnPlanes(float dt)
+std::vector<EnemyPlane*>& Wave::SpawnPlanes(float dt)
 {
 	timer += dt;
 
-
-	if (timer >= startTime) {
+	if (timer >= startTime && spawn) {
 		for (int i = 0; i < amount; i++) {
-	
+
 			switch (type)
 			{
 			case WaveType::normal: {
@@ -42,8 +42,10 @@ std::vector<EnemyPlane*> Wave::SpawnPlanes(float dt)
 			}
 
 		}
-			timer = 0;
+		timer = 0;
+		spawn = false;
 	}
+	
 
 	return spawnedPlanes;
 }
@@ -68,4 +70,9 @@ void Wave::Start()
 
 void Wave::IsFinished()
 {
+}
+
+float Wave::GetStartTime()
+{
+	return startTime;
 }
