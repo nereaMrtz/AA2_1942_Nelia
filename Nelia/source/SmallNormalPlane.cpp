@@ -6,12 +6,11 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	{
 	case MovementPattern::V:
 		//SetPosition(transform.position.x + dt * 100, transform.position.y + dt * 100);
-		transform.position.x += dt * 100;
 		transform.position.y += dt * 100;
 		SetPosition(transform.position.x, transform.position.y);
 		break;
 	case MovementPattern::O:
-
+		SetPosition(transform.position.x, transform.position.y);
 		break;
 	case MovementPattern::I:
 		SetPosition(transform.position.x, transform.position.y+ dt * 200);
@@ -23,8 +22,8 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 
 SmallNormalPlane::SmallNormalPlane(MovementPattern mT) : EnemyPlane()
 {
-	
-	switch (mT)
+	movementType = mT;
+	/*switch (mT)
 	{
 	case MovementPattern::V:
 		movementType = MovementPattern::V;
@@ -37,13 +36,13 @@ SmallNormalPlane::SmallNormalPlane(MovementPattern mT) : EnemyPlane()
 		break;
 	default:
 		break;
-	}
+	}*/
 
 	int random = rand() % 5 + 2;
 
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,160, 512, 512 }, { 1, 1 }, 0, 0, false, 0);
 	ChangeSourcePosSize({ 0,0 }, { 24,16 }, 0);
-	SetPosition(RM->windowWidth / random, RM->windowHeight / 6);
+	SetPosition(RM->windowWidth / random, RM->windowHeight / 8);
 	//std::cout << random <<" "<< random << std::endl;
 	//normalPlane.push_back(enemy);
 
