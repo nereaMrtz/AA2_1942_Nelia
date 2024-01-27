@@ -13,6 +13,10 @@ void PlayerBullet::Update(float dt)
 {
 	SetPosition(transform.position.x, transform.position.y - dt * 100);
 	physics.Update(dt);
+
+	if (transform.position.y <= 0) {
+		Destroy();
+	}
 }
 
 void PlayerBullet::Render()

@@ -1,5 +1,5 @@
 #pragma once
-#include "MovementType.h"
+#include "MovementPattern.h"
 #include "EnemyPlane.h"
 
 #include <iostream>
@@ -9,13 +9,13 @@ private:
 	bool dir;
 
 protected:
-	MovementType movementType;
+	MovementPattern movementType;
 
 	void UpdateMovementPattern(float dt) override;
 
 public:
-	SmallNormalPlane(MovementType mT);
+	SmallNormalPlane(MovementPattern mT);
 
-	virtual void Update(float dt) override;
+	void Update(float dt) override;
 };
 

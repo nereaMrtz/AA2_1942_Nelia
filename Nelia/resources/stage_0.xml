@@ -2,13 +2,13 @@
 <stage>
   <totalTime>50</totalTime>
   <wave>
-    <spawnTime>15</spawnTime>
+    <spawnTime>0</spawnTime>
     <type pattern="V">normal</type>
     <amount>5</amount>
   </wave>
   <wave>
     <spawnTime>20</spawnTime>
-    <type pattern="O">normal</type>
+    <type pattern="I">normal</type>
     <amount>2</amount>
   </wave>
   <wave>

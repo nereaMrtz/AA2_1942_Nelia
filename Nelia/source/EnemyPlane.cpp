@@ -28,10 +28,13 @@ void EnemyPlane::Update(float dt)
 
 void EnemyPlane::Render()
 {
-	for (auto element : renderer) {
+	renderer[0]->SetPosition(transform.position.x, transform.position.y);
+	renderer[0]->Render();
+	/*for (auto element : renderer) {
 		element->SetPosition(transform.position.x, transform.position.y);
+		element->Update();
 		element->Render();
-	}
+	}*/
 }
 
 void EnemyPlane::OnCollisionEnter(Object* other)
