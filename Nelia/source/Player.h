@@ -10,11 +10,13 @@ private:
 	float fireTime;
 	float lastFireTime;
 	float bulletTimer;
+	float time;
 
 	bool isRolling;
 	bool doubleFire;
 
 	int currentAnim;
+	int lives;
 
 	void PlayRollAnimation();
 
@@ -27,7 +29,7 @@ public:
 	void Update(float dt) override;
 	void Render() override;
 	void Shoot();
-	void PlayDeathAnimation();
+	void Death();
 	void PlayLandingAnimation();
 	void PlayTakeOffAnimation();
 	void EnableDoubleFire();
