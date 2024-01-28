@@ -20,14 +20,16 @@ private:
 	std::vector<EnemyPlane*> spawnedPlanes;
 
 	bool isFinished;
-
 public:
+	bool spawn;
 	Wave(float startTime, WaveType type, MovementPattern movementPattern, int amount);
 
-	std::vector<EnemyPlane*> SpawnPlanes(float dt);
-	void Update(float dt);
+	std::vector<EnemyPlane*>& Update(float dt);
 	void Render();
 	void Start();
 	void IsFinished();
+
+	float GetStartTime();
+
 };
 

@@ -18,8 +18,14 @@ class GameplayScene : public Scene
 private:
 	Tile background;
 	Player* player;
-	std::vector<EnemyPlane*> normalPlanes;
+	//std::vector<EnemyPlane*> normalPlanes;
 	std::vector<Wave*> waves;
+
+	float timer;
+
+	float spawnerTime;
+
+	bool spawn;
 
 public:
 	GameplayScene();
