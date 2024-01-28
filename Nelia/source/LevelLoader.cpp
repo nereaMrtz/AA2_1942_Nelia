@@ -29,7 +29,7 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 			//pRoot = pRoot->next_sibling();
 			std::string pattern;
 			if (pNode->first_node()->next_sibling()->first_attribute())
-				pattern = pNode->first_node()->next_sibling()->first_attribute()->name();
+				pattern = pNode->first_node()->next_sibling()->first_attribute()->value();
 			std::string type = pNode->first_node()->next_sibling()->value();
 			//pRoot = pRoot->next_sibling();
 			int amount = std::stoi(pNode->first_node()->next_sibling()->next_sibling()->value());

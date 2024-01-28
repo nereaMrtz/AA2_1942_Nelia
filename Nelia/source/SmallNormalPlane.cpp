@@ -5,46 +5,42 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	switch (movementType)
 	{
 	case MovementPattern::V:
-		//SetPosition(transform.position.x + dt * 100, transform.position.y + dt * 100);
-		transform.position.y += dt * 100;
-		SetPosition(transform.position.x, transform.position.y);
+		if (dir) {
+			SetPosition(transform.position.x + dt * 500, transform.position.y + dt * 500);
+		}
+		else {
+			SetPosition(-transform.position.x + dt * 5, transform.position.y + dt * 500);
+		}
 		break;
 	case MovementPattern::O:
-		SetPosition(transform.position.x, transform.position.y);
+		std::cout << transform.position.y << std::endl;
+		if (transform.position.y > 200)
+			SetPosition(transform.position.x + dt * 300, transform.position.y + dt * 300);
+		SetPosition(transform.position.x, transform.position.y + dt * 300);
 		break;
 	case MovementPattern::I:
-		SetPosition(transform.position.x, transform.position.y+ dt * 200);
+		SetPosition(transform.position.x, transform.position.y + dt * 500);
 		break;
 	default:
 		break;
 	}
+
 }
 
 SmallNormalPlane::SmallNormalPlane(MovementPattern mT) : EnemyPlane()
 {
 	movementType = mT;
-	/*switch (mT)
-	{
-	case MovementPattern::V:
-		movementType = MovementPattern::V;
-		break;
-	case MovementPattern::O:
-		movementType = MovementPattern::O;
-		break;
-	case MovementPattern::I:
-		movementType = MovementPattern::I;
-		break;
-	default:
-		break;
-	}*/
 
-	int random = rand() % 5 + 2;
+	int random = rand() % 20 + 2;
 
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,160, 512, 512 }, { 1, 1 }, 0, 0, false, 0);
 	ChangeSourcePosSize({ 0,0 }, { 24,16 }, 0);
-	SetPosition(RM->windowWidth / random, RM->windowHeight / 8);
-	//std::cout << random <<" "<< random << std::endl;
-	//normalPlane.push_back(enemy);
+	SetPosition(RM->windowWidth / random, -RM->windowHeight);
+
+	int randomDir = rand() % 2;
+	//dir = randomDir;
+	dir = true;
+	std::cout << randomDir << std::endl;
 
 }
 
