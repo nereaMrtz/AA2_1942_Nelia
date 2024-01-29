@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "GameObject.h"
 #include "Spawner.h"
 #include "SupportPlane.h"
@@ -17,6 +18,8 @@ private:
 
 	int currentAnim;
 	int lives;
+
+	Vector2 spawnPos;
 
 	void PlayRollAnimation();
 

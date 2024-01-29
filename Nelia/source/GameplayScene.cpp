@@ -30,6 +30,7 @@ void GameplayScene::Update(float dt)
 			if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 
 				player->Death();
+				enemy->Destroy();
 				std::cout << "chocaaao" << std::endl;
 			}
 			else

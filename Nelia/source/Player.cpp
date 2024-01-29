@@ -9,6 +9,8 @@ Player::Player() : GameObject()
 {
 	currentAnim = 0;
 	lives = 3;
+	spawnPos = Vector2(RM->windowWidth / 2, RM->windowHeight -100);
+
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 2, 2 }, 2, 1, false, 2);
 	ChangeSourcePosSize({ 0,0 }, { 32,24 }, 0); //0: Idle anim
 	LoadTexture(RM->GetRenderer(), "resources/sprites.png", true, { 0,0, 512, 512 }, { 64,0, 512, 512 }, { 2, 2 }, 3, 1, false, 1);
@@ -18,7 +20,7 @@ Player::Player() : GameObject()
 
 	//death anim
 
-	SetPosition(RM->windowWidth / 2, RM->windowHeight / 2);
+	SetPosition(spawnPos.x, spawnPos.y);
 
 	physics = Rigidbody(&transform, Vector2(transform.position.x, transform.position.y), Vector2(32,24));
 
@@ -104,15 +106,16 @@ void Player::Death()
 {
 	// play death animation
 
-	if (time + 1.0f < TM->GetDtSec()) {
+	if ( time + 1.0f >= TM->GetDtSec()) {
 		lives--;
 	}
 	time = 0;
-	if (time + 2.0f < TM->GetDtSec()) {
+	if (time +  2.0f >= TM->GetDtSec()) {
 		//screen turns blue
-		SetPosition(RM->windowWidth / 2, RM->windowHeight / 2);
+		SetPosition(spawnPos.x, spawnPos.y);
 		//quitar todos los enemies y balas de pantalla 
 	}
+		std::cout << lives << std::endl;
 }
 
 void Player::PlayLandingAnimation()
