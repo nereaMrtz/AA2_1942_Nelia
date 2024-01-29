@@ -8,6 +8,7 @@
 #include "RenderManager.h"
 #include "TimeManager.h"
 #include "Tile.h"
+#include "PauseMenu.h"
 
 class GameEngine
 {
