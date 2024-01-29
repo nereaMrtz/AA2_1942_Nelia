@@ -1,89 +1,325 @@
 #include "MainMenuScene.h"
 
+MainMenuScene::MainMenuScene()
+{
+	background = Tile(false);
+
+	// ------ BACKGROUND TEXTURE
+	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
+}
+
 void MainMenuScene::Update(float dt)
 {
+	// ------ BUTTON PLAY
 	//Check if the mouse is inside the render rect
-	int width = 28 * sampleText.text.length();
-	int height = 50;
+	int widthPlay = 28 * playText.text.length();
+	int heightPlay = 50;
 
-	int X = sampleText.position[0] - width / 2;
-	int Y = sampleText.position[1] - height / 2;
+	int XPlay = playText.position[0] - (widthPlay / 2);
+	int YPlay = playText.position[1] - heightPlay / 2;
 	//sampleText.position --> x, y
 
 
-	int mouseX = IM->GetMouseX();
-	int mouseY = IM->GetMouseY();
+	int mouseXPlay = IM->GetMouseX();
+	int mouseYPlay = IM->GetMouseY();
 
-	bool isInsideAABBX = mouseX > X && mouseX < sampleText.position[0] + width;
-	bool isInsideAABBY = mouseY > Y && mouseY < sampleText.position[1] + height;
+	bool isInsideAABBXPlay = mouseXPlay > XPlay && mouseXPlay < playText.position[0] + widthPlay;
+	bool isInsideAABBYPlay = mouseYPlay > YPlay && mouseYPlay < playText.position[1] + heightPlay;
 
-	if (isInsideAABBX && isInsideAABBY) {
-		buttonAngle += 0.05;
-		if (IM->CheckKeyState(SDLK_j, PRESSED))
-			SM->SetScene("Splash Screen");
+	if (isInsideAABBXPlay && isInsideAABBYPlay) {
+		buttonAnglePlay += 0.05;
+		if (SDL_GetMouseState(&mouseXPlay, &mouseYPlay) & SDL_BUTTON(SDL_BUTTON_LEFT))
+			SM->SetScene("Gameplay Scene");
 	}
 	else
-		buttonAngle = 0;
+		buttonAnglePlay = 0;
+
+	// ------ BUTTON RANKING
+	//Check if the mouse is inside the render rect
+	int widthRanking = 28 * rankingText.text.length();
+	int heightRanking = 50;
+
+	int XRanking = rankingText.position[0] - (widthRanking / 2);
+	int YRanking = rankingText.position[1] - heightRanking / 2;
+
+	int mouseXRanking = IM->GetMouseX();
+	int mouseYRanking = IM->GetMouseY();
+
+	bool isInsideAABBXRanking = mouseXRanking > XRanking && mouseXRanking < rankingText.position[0] + widthRanking;
+	bool isInsideAABBYRanking = mouseYRanking > YRanking && mouseYRanking < rankingText.position[1] + heightRanking;
+
+	if (isInsideAABBXRanking && isInsideAABBYRanking) {
+		buttonAngleRanking += 0.05;
+		if (SDL_GetMouseState(&mouseXRanking, &mouseYRanking) & SDL_BUTTON(SDL_BUTTON_LEFT))
+			// Ranking scene (no ta :)
+			SM->SetScene("");
+	}
+	else
+		buttonAngleRanking = 0;
+
+	// ------ BUTTON AUDIO
+	//Check if the mouse is inside the render rect
+	int widthAudio = 28 * audioText.text.length();
+	int heightAudio = 50;
+
+	int XAudio = audioText.position[0] - (widthAudio / 2);
+	int YAudio = audioText.position[1] - heightAudio / 2;
+
+	int mouseXAudio = IM->GetMouseX();
+	int mouseYAudio = IM->GetMouseY();
+
+	bool isInsideAABBXAudio = mouseXAudio > XAudio && mouseXAudio < audioText.position[0] + widthAudio;
+	bool isInsideAABBYAudio = mouseYAudio > YAudio && mouseYAudio < audioText.position[1] + heightAudio;
+
+	if (isInsideAABBXAudio && isInsideAABBYAudio) {
+		buttonAngleAudio += 0.05;
+		if (SDL_GetMouseState(&mouseXAudio, &mouseYAudio) & SDL_BUTTON(SDL_BUTTON_LEFT))
+			// Audio scene (no ta :)
+			SM->SetScene("");
+	}
+	else
+		buttonAngleAudio = 0;
+
+	// ------ BUTTON EXIT
+	//Check if the mouse is inside the render rect
+	int widthExit = 28 * exitText.text.length();
+	int heightExit = 50;
+
+	int XExit = exitText.position[0] - (widthExit / 2);
+	int YExit = exitText.position[1] - heightExit / 2;
+
+	int mouseXExit = IM->GetMouseX();
+	int mouseYExit = IM->GetMouseY();
+
+	bool isInsideAABBXExit = mouseXExit > XExit && mouseXExit < exitText.position[0] + widthExit;
+	bool isInsideAABBYExit = mouseYExit > YExit && mouseYExit < exitText.position[1] + heightExit;
+
+	if (isInsideAABBXExit && isInsideAABBYExit) {
+		buttonAngleExit += 0.05;
+		if (SDL_GetMouseState(&mouseXExit, &mouseYExit) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+
+			RM->Quit();
+		}
+	}
+	else
+		buttonAngleExit = 0;
 }
 
 void MainMenuScene::Render(SDL_Renderer* renderer)
 {
-	//Text data
-	//width
-	int width = 28 * sampleText.text.length();
-	//height
-	int height = 50;
-	//color
-	SDL_Color color = {0, 0, 0};
-	//surface
-	SDL_Surface* surface = TTF_RenderText_Solid(font, sampleText.text.c_str(), color);
+	// ------ BACKGROUND
+	background.Render();
 
-	assert(surface != nullptr);
+	// ------ PLAY BUTTON
+	//width
+	int widthPlay = 28 * playText.text.length();
+	//height
+	int heightPlay = 50;
+	//color
+	SDL_Color colorPlay = {255, 255, 255};
+	//surface
+	surfacePlay = TTF_RenderText_Solid(font, playText.text.c_str(), colorPlay);
+
+	assert(surfacePlay != nullptr);
 
 	//Textura
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-	assert(texture != nullptr);
+	texturePlay = SDL_CreateTextureFromSurface(renderer, surfacePlay);
+	//assert(texturePlay != nullptr);
 
-	SDL_SetTextureAlphaMod(texture, 255); //Para que un text ose haga transparente -> 255 = max opacidad
+	SDL_SetTextureAlphaMod(texturePlay, 255); //Para que un text ose haga transparente -> 255 = max opacidad
 
 
 	//Dibujar
-	SDL_Rect renderRect =
+	SDL_Rect renderRectPlay =
 	{
-		sampleText.position[0] - width / 2,
-		sampleText.position[1] - height / 2,
-		width,
-		height
+		playText.position[0] - widthPlay / 2,
+		playText.position[1] - heightPlay / 2,
+		widthPlay,
+		heightPlay
 	};
 
 	SDL_RenderCopyEx(
 		renderer,		// Renderer
-		texture,		// Target texture
+		texturePlay,		// Target texture
 		NULL,			// Texture part we want to draw
-		&renderRect,	// Where do we want to draw and size
-		sin(buttonAngle* (3.14f * 2.0f) / 180.0f) * 10,	// Angle
+		&renderRectPlay,	// Where do we want to draw and size
+		sin(buttonAnglePlay * (3.14f * 2.0f) / 180.0f) * 10,	// Angle
 		NULL,			// Center of the sprite
 		SDL_FLIP_NONE	// Flip the sprite
 	);
 
-	SDL_FreeSurface(surface);
-	SDL_DestroyTexture(texture);
+	SDL_FreeSurface(surfacePlay);
+	SDL_DestroyTexture(texturePlay);
 
+
+	// ------ RANKING BUTTON
+	//width
+	int widthRanking = 28 * rankingText.text.length();
+	//height
+	int heightRanking = 50;
+	//color
+	SDL_Color colorRanking = { 255, 255, 255 };
+	//surface
+	surfaceRanking = TTF_RenderText_Solid(font, rankingText.text.c_str(), colorRanking);
+
+	assert(surfaceRanking != nullptr);
+
+	//Textura
+	textureRanking = SDL_CreateTextureFromSurface(renderer, surfaceRanking);
+	//assert(textureRanking != nullptr);
+
+	SDL_SetTextureAlphaMod(textureRanking, 255); //Para que un text ose haga transparente -> 255 = max opacidad
+
+
+	//Dibujar
+	SDL_Rect renderRectRanking =
+	{
+		rankingText.position[0] - widthRanking / 2,
+		rankingText.position[1] - heightRanking / 2,
+		widthRanking,
+		heightRanking
+	};
+
+	SDL_RenderCopyEx(
+		renderer,		// Renderer
+		textureRanking,		// Target texture
+		NULL,			// Texture part we want to draw
+		&renderRectRanking,	// Where do we want to draw and size
+		sin(buttonAngleRanking * (3.14f * 2.0f) / 180.0f) * 10,	// Angle
+		NULL,			// Center of the sprite
+		SDL_FLIP_NONE	// Flip the sprite
+	);
+
+	SDL_FreeSurface(surfaceRanking);
+	SDL_DestroyTexture(textureRanking);
+
+
+	// ------ AUDIO BUTTON
+	///width
+	int widthAudio = 28 * audioText.text.length();
+	//height
+	int heightAudio = 50;
+	//color
+	SDL_Color colorAudio = { 255, 255, 255 };
+	//surface
+	surfaceAudio = TTF_RenderText_Solid(font, audioText.text.c_str(), colorAudio);
+
+	assert(surfaceAudio != nullptr);
+
+	//Textura
+	textureAudio = SDL_CreateTextureFromSurface(renderer, surfaceAudio);
+	//assert(textureAudio != nullptr);
+
+	SDL_SetTextureAlphaMod(textureAudio, 255); //Para que un text ose haga transparente -> 255 = max opacidad
+
+
+	//Dibujar
+	SDL_Rect renderRectAudio =
+	{
+		audioText.position[0] - widthAudio / 2,
+		audioText.position[1] - heightAudio / 2,
+		widthAudio,
+		heightAudio
+	};
+
+
+	SDL_RenderCopyEx(
+		renderer,		// Renderer
+		textureAudio,		// Target texture
+		NULL,			// Texture part we want to draw
+		&renderRectAudio,	// Where do we want to draw and size
+		sin(buttonAngleAudio * (3.14f * 2.0f) / 180.0f) * 10,	// Angle
+		NULL,			// Center of the sprite
+		SDL_FLIP_NONE	// Flip the sprite
+	);
+
+	SDL_FreeSurface(surfaceAudio);
+	SDL_DestroyTexture(textureAudio);
+
+
+	// ------ EXIT BUTTON
+	//width
+	int widthExit = 28 * exitText.text.length();
+	//height
+	int heightExit = 50;
+	//color
+	SDL_Color colorExit = { 255, 255, 255 };
+	//surface
+	surfaceExit = TTF_RenderText_Solid(font, exitText.text.c_str(), colorExit);
+
+	assert(surfaceExit != nullptr);
+
+	//Textura
+	textureExit = SDL_CreateTextureFromSurface(renderer, surfaceExit);
+	//assert(textureExit != nullptr);
+
+	SDL_SetTextureAlphaMod(textureExit, 255); //Para que un text ose haga transparente -> 255 = max opacidad
+
+
+	//Dibujar
+	SDL_Rect renderRectExit =
+	{
+		exitText.position[0] - widthExit / 2,
+		exitText.position[1] - heightExit / 2,
+		widthExit,
+		heightExit
+	};
+
+	SDL_RenderCopyEx(
+		renderer,		// Renderer
+		textureExit,		// Target texture
+		NULL,			// Texture part we want to draw
+		&renderRectExit,	// Where do we want to draw and size
+		sin(buttonAngleExit 
+			* (3.14f * 2.0f) / 180.0f) * 10,	// Angle
+		NULL,			// Center of the sprite
+		SDL_FLIP_NONE	// Flip the sprite
+	);
+
+	SDL_FreeSurface(surfaceExit);
+	SDL_DestroyTexture(textureExit);
 }
 
 void MainMenuScene::OnEnter(){
 	//INIT TTF
 	assert(TTF_Init() != -1);
 
-	font = TTF_OpenFont("resources/fonts/hyperspace.ttf", 28);
+	font = TTF_OpenFont("resources/fonts/theRealFont.ttf", 28);
 	assert(font != nullptr);
-	sampleText.text = "AAAAAAAAA";
-	sampleText.position[0] = 250;
-	sampleText.position[1] = 250;
-	buttonAngle = 0;
 
+	playText.text = "Play";
+	playText.position[0] = 250;
+	playText.position[1] = 150;
+	buttonAnglePlay = 0;
+	
+	rankingText.text = "Ranking";
+	rankingText.position[0] = 250;
+	rankingText.position[1] = 210;
+	buttonAngleRanking = 0;
+
+	audioText.text = "Audio";
+	audioText.position[0] = 250;
+	audioText.position[1] = 270;
+	buttonAngleAudio = 0;
+
+	exitText.text = "Exit";
+	exitText.position[0] = 250;
+	exitText.position[1] = 340;
+	buttonAngleExit = 0;
 }
 
 void MainMenuScene::OnExit(){
 	
+}
+
+void MainMenuScene::DestroySurfaceAndTexture()
+{
+	SDL_FreeSurface(surfacePlay);
+	SDL_DestroyTexture(texturePlay);
+	SDL_FreeSurface(surfaceRanking);
+	SDL_DestroyTexture(textureRanking);
+	SDL_FreeSurface(surfaceAudio);
+	SDL_DestroyTexture(textureAudio);
+	SDL_FreeSurface(surfaceExit);
+	SDL_DestroyTexture(textureExit);
 }

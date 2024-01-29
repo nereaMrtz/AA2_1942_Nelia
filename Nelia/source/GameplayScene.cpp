@@ -91,3 +91,12 @@ void GameplayScene::OnEnter()
 void GameplayScene::OnExit()
 {
 }
+
+
+void GameplayScene::RestartTimer()
+{
+}
+
+void GameplayScene::RestartLevel()
+{
+}

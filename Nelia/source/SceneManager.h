@@ -21,6 +21,7 @@ public:
 	
 	//-----setters
 	void SetScene(std::string name);
+	void ClearScene();
 
 	//-----singleton
 	static SceneManager* GetInstance();
