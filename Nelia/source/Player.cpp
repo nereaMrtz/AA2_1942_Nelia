@@ -24,7 +24,7 @@ Player::Player() : GameObject()
 
 	physics = Rigidbody(&transform, Vector2(transform.position.x, transform.position.y), Vector2(32,24));
 
-	time = 0.f;
+	timer = 0.f;
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -77,9 +77,36 @@ void Player::Update(float dt)
 
 	bulletTimer += TM->GetDtSec();
 
+	if (resetTimer) {
+		timer = 0;
+		resetTimer = false;
+	}
+
 	if (lives == 0) {
 		//Change to game over scene
 	}
+
+	//Player Damage
+	if (damage) {
+
+		// play death animation
+		SDL_Delay(1000);
+		if (canTakeLife) {
+			lives--;
+			std::cout << "te quito vida" << std::endl;
+			canTakeLife = false;
+		}
+
+		SDL_Delay(3000);
+		//screen turns blue
+		SDL_SetRenderDrawColor(RM->GetRenderer(), 255, 0, 0, 255);
+		SDL_Delay(3000);
+		SetPosition(spawnPos.x, spawnPos.y);
+		std::cout << "pium pium" << std::endl;
+		damage = false;
+		
+	}
+	timer += dt;
 }
 
 void Player::Render()
@@ -104,18 +131,9 @@ void Player::Shoot()
 
 void Player::Death()
 {
-	// play death animation
-
-	if ( time + 1.0f >= TM->GetDtSec()) {
-		lives--;
-	}
-	time = 0;
-	if (time +  2.0f >= TM->GetDtSec()) {
-		//screen turns blue
-		SetPosition(spawnPos.x, spawnPos.y);
-		//quitar todos los enemies y balas de pantalla 
-	}
-		std::cout << lives << std::endl;
+	ResetTimer();
+	damage = true;
+	canTakeLife = true;
 }
 
 void Player::PlayLandingAnimation()
@@ -136,6 +154,11 @@ void Player::AddSupportPlanes()
 
 void Player::OnCollisionEnter(Object* other)
 {
+}
+
+void Player::ResetTimer()
+{
+	resetTimer = true;
 }
 
 std::vector<PlayerBullet*>& Player::GetBullets()

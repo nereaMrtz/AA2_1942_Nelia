@@ -11,10 +11,13 @@ private:
 	float fireTime;
 	float lastFireTime;
 	float bulletTimer;
-	float time;
+	float timer;
 
 	bool isRolling;
 	bool doubleFire;
+	bool damage;
+	bool canTakeLife;
+	bool resetTimer;
 
 	int currentAnim;
 	int lives;
@@ -38,6 +41,8 @@ public:
 	void EnableDoubleFire();
 	void AddSupportPlanes();
 	void OnCollisionEnter(Object* other) override;
+
+	void ResetTimer();
 
 	std::vector<PlayerBullet*>& GetBullets();
 };
