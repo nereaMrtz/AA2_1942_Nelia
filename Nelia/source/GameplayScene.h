@@ -10,6 +10,8 @@
 #include "Player.h"
 #include "SmallNormalPlane.h"
 #include "LevelLoader.h"
+#include "TextRenderer.h"
+#include "HUD.h"
 
 
 
@@ -27,6 +29,7 @@ private:
 	float spawnerTime;
 
 	bool spawn;
+	HUD hud;
 
 public:
 	GameplayScene();

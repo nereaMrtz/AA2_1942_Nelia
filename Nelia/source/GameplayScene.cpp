@@ -10,6 +10,8 @@ GameplayScene::GameplayScene()
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 
+	
+
 	timer = 0;
 	spawnerTime = 0;
 	spawn = false;
@@ -80,6 +82,8 @@ void GameplayScene::Render(SDL_Renderer*)
 	{
 		waves[i]->Render();
 	}
+
+	hud.Render();
 }
 
 void GameplayScene::OnEnter()
