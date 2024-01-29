@@ -37,6 +37,8 @@ void GameplayScene::Update(float dt)
 					player->Death();
 					enemy->Destroy();
 					std::cout << "chocaaao" << std::endl;
+					if (player->isDead())
+						states = DEATH;
 				}
 				else
 				{
@@ -78,6 +80,7 @@ void GameplayScene::Update(float dt)
 	case GameState::FINISH_STAGE:
 		break;
 	case GameState::DEATH:
+		SM->SetScene("Game Over");
 		break;
 	default:
 		break;

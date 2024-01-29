@@ -25,6 +25,7 @@ Player::Player() : GameObject()
 	physics = Rigidbody(&transform, Vector2(transform.position.x, transform.position.y), Vector2(32,24));
 
 	timer = 0.f;
+	dead = false;
 }
 
 void Player::AddMovement(Vector2 dir)
@@ -83,7 +84,7 @@ void Player::Update(float dt)
 	}
 
 	if (lives == 0) {
-		//Change to game over scene
+		dead = true;
 	}
 
 	//Player Damage
@@ -105,6 +106,10 @@ void Player::Update(float dt)
 		std::cout << "pium pium" << std::endl;
 		damage = false;
 		
+	}
+	if (IM->CheckKeyState(SDLK_c, PRESSED)) {
+		lives = 0;
+		std::cout << "morisionado" << std::endl;
 	}
 	timer += dt;
 }
@@ -159,6 +164,11 @@ void Player::OnCollisionEnter(Object* other)
 void Player::ResetTimer()
 {
 	resetTimer = true;
+}
+
+bool Player::isDead()
+{
+	return dead;
 }
 
 std::vector<PlayerBullet*>& Player::GetBullets()

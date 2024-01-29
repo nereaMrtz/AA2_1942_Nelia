@@ -4,9 +4,9 @@ PauseMenu::PauseMenu()
 {
 	background = Tile(false);
 
-
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
+
 }
 
 void PauseMenu::Update(float dt)

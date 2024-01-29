@@ -1,12 +1,25 @@
 #pragma once
-#include "PowerUp.h"
+#include "Scene.h"
+#include "UIText.h"
+#include "Tile.h"
+#include "InputManager.h"
 
-class GrayPowerUp : public PowerUp {
+class GameOver : public Scene {
+private:
+	Tile background;
+
+	UIText backToMenu;
+
+	TTF_Font* font;
+
+	float buttonAngle;
+
 public:
-	GrayPowerUp(Player* pj);
-	GrayPowerUp(Player* pj, Spawner* spawner);
+	GameOver();
 
-	void Update() override;
-	void OnCollisionEnter(Object* other) override;
+	void Update(float dt);
+	void Render(SDL_Renderer*);
+	void OnEnter();
+	void OnExit();
 };
 
