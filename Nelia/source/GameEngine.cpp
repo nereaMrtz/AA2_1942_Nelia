@@ -16,10 +16,9 @@ void GameEngine::Init()
 
 void GameEngine::Run(){
 	SM->AddScene("Splash Screen", new SplashScreenScene());
-	//SM->AddScene("Main Menu", new MainMenuScene());
-	//SM->SetScene("Splash Screen");
+	SM->SetScene("Splash Screen");
+	SM->AddScene("Main Menu", new MainMenuScene());
 	SM->AddScene("Gameplay Scene", new GameplayScene());
-	SM->SetScene("Gameplay Scene");
 
 	while (isRunning)
 	{

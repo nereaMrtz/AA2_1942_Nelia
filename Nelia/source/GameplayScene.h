@@ -16,6 +16,7 @@
 class GameplayScene : public Scene
 {
 private:
+
 	Tile background;
 	Player* player;
 	//std::vector<EnemyPlane*> normalPlanes;
@@ -33,6 +34,9 @@ public:
 	virtual void Render(SDL_Renderer*) override;
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
+
+	void RestartTimer();
+	void RestartLevel();
 
 	float levelTime;
 };

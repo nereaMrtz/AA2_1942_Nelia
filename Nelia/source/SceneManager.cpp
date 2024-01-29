@@ -36,6 +36,7 @@ Scene* SceneManager::GetScene(std::string name) {
 	bool sceneFound = scene != scenes.end();
 	return sceneFound ? scenes[name] : nullptr;
 }
+
 //Returns a pointer to the current active scene
 Scene* SceneManager::GetCurrentScene(){
 	return currentScene;
@@ -54,4 +55,9 @@ void SceneManager::SetScene(std::string name){
 		currentScene = scene->second;
 		currentScene->OnEnter();
 	}
+}
+
+void SceneManager::ClearScene()
+{
+	scenes.clear();
 }
