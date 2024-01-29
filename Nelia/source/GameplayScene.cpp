@@ -29,7 +29,9 @@ void GameplayScene::Update(float dt)
 			//Check collision between player & enemy planes
 			if (player->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 
-				std::cout << "HA CHOCAO" << std::endl;
+				player->Death();
+				enemy->Destroy();
+				std::cout << "chocaaao" << std::endl;
 			}
 			else
 			{

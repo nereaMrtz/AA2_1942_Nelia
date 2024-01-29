@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "GameObject.h"
 #include "Spawner.h"
 #include "SupportPlane.h"
@@ -10,11 +11,18 @@ private:
 	float fireTime;
 	float lastFireTime;
 	float bulletTimer;
+	float timer;
 
 	bool isRolling;
 	bool doubleFire;
+	bool damage;
+	bool canTakeLife;
+	bool resetTimer;
 
 	int currentAnim;
+	int lives;
+
+	Vector2 spawnPos;
 
 	void PlayRollAnimation();
 
@@ -27,12 +35,14 @@ public:
 	void Update(float dt) override;
 	void Render() override;
 	void Shoot();
-	void PlayDeathAnimation();
+	void Death();
 	void PlayLandingAnimation();
 	void PlayTakeOffAnimation();
 	void EnableDoubleFire();
 	void AddSupportPlanes();
 	void OnCollisionEnter(Object* other) override;
+
+	void ResetTimer();
 
 	std::vector<PlayerBullet*>& GetBullets();
 };
