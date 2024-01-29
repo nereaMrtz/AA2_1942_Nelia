@@ -13,11 +13,10 @@
 class PauseMenu : public Scene{
 private:
 	Tile background;
+	SDL_Surface* surface;
+	SDL_Texture* texture;
 
 	UIText resume;
-
-	GameState states;
-	Scene* gameplayState;
 
 	TTF_Font* font;
 
@@ -30,5 +29,7 @@ public:
 	void Render(SDL_Renderer*);
 	void OnEnter();
 	void OnExit();
+
+	void DestroySurfaceAndTexture();
 };
 

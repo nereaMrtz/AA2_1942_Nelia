@@ -4,9 +4,6 @@ PauseMenu::PauseMenu()
 {
 	background = Tile(false);
 
-	gameplayState = SM->GetScene("Gameplay Scene");
-
-	states = gameplayState.GetState();
 
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
@@ -35,7 +32,7 @@ void PauseMenu::Update(float dt)
 		}
 	}
 	if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED)) {
-		SM->GetScene("Gameplay Scene").SetState(GameState::GAMEPLAY);
+		SM->GetScene("Gameplay Scene");
 		OnExit();
 	}
 	else
@@ -55,12 +52,12 @@ void PauseMenu::Render(SDL_Renderer* renderer)
 	//color
 	SDL_Color color = { 255, 255, 255 };
 	//surface
-	SDL_Surface* surface = TTF_RenderText_Solid(font, resume.text.c_str(), color);
+	surface = TTF_RenderText_Solid(font, resume.text.c_str(), color);
 
 	assert(surface != nullptr);
 
 	//Textura
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+	texture = SDL_CreateTextureFromSurface(renderer, surface);
 	//assert(texturePlay != nullptr);
 
 	SDL_SetTextureAlphaMod(texture, 255); //Para que un text ose haga transparente -> 255 = max opacidad
@@ -84,8 +81,7 @@ void PauseMenu::Render(SDL_Renderer* renderer)
 		SDL_FLIP_NONE	// Flip the sprite
 	);
 
-	SDL_FreeSurface(surface);
-	SDL_DestroyTexture(texture);
+	DestroySurfaceAndTexture();
 }
 
 void PauseMenu::OnEnter() {
@@ -102,5 +98,12 @@ void PauseMenu::OnEnter() {
 }
 
 void PauseMenu::OnExit() {
-	states = GameState::GAMEPLAY;
+	//SM->SetScene("Gameplay Scene");
+}
+
+void PauseMenu::DestroySurfaceAndTexture()
+{
+
+	SDL_FreeSurface(surface);
+	SDL_DestroyTexture(texture);
 }

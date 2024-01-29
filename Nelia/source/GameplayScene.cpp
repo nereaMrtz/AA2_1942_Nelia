@@ -63,18 +63,17 @@ void GameplayScene::Update(float dt)
 			}
 		}
 		timer += dt;
+		std::cout << timer << std::endl;
 
 		if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED)) {
-			states = GameState::PAUSED;
+			states = PAUSED;
 			break;
 		}
-
 		break;
 	case GameState::PAUSED:
 		SM->SetScene("Pause Menu");
-		
 		std::cout << "PAUSADO";
-
+		states = GAMEPLAY;
 		break;
 	case GameState::FINISH_STAGE:
 		break;
