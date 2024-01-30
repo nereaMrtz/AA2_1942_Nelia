@@ -14,5 +14,6 @@ private:
 public:
 	HUD();
 	void Render();
+	void UpdateScore(int score);
 };
 

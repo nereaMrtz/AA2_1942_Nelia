@@ -209,6 +209,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\RenderManager.cpp" />
     <ClCompile Include="source\Rigidbody.cpp" />
     <ClCompile Include="source\SceneManager.cpp" />
+    <ClCompile Include="source\ScoreManager.cpp" />
     <ClCompile Include="source\SmallNormalPlane.cpp" />
     <ClCompile Include="source\SmallRedPlane.cpp" />
     <ClCompile Include="source\SmallYellowPlane.cpp" />
@@ -253,6 +254,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClInclude Include="source\Rigidbody.h" />
     <ClInclude Include="source\Scene.h" />
     <ClInclude Include="source\SceneManager.h" />
+    <ClInclude Include="source\ScoreManager.h" />
     <ClInclude Include="source\SmallNormalPlane.h" />
     <ClInclude Include="source\SmallRedPlane.h" />
     <ClInclude Include="source\SmallYellowPlane.h" />

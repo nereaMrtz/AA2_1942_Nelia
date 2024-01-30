@@ -12,8 +12,6 @@ GameplayScene::GameplayScene()
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 
-	
-
 	timer = 0;
 	spawnerTime = 0;
 	spawn = false;
@@ -38,6 +36,7 @@ void GameplayScene::Update(float dt)
 
 					player->Death();
 					enemy->Destroy();
+					score.AddScore(10);
 					std::cout << "chocaaao" << std::endl;
 					if (player->isDead())
 						states = DEATH;
@@ -52,6 +51,7 @@ void GameplayScene::Update(float dt)
 					if (bullet->GetRigidbody().CheckCollision(enemy->GetRigidbody().GetCollider())) {
 						enemy->Destroy();
 						bullet->Destroy();
+						score.AddScore(50);
 					}
 				}
 			}
@@ -67,12 +67,17 @@ void GameplayScene::Update(float dt)
 			}
 		}
 		timer += dt;
-		std::cout << timer << std::endl;
+		std::cout << score.GetScore() << std::endl;
 
 		if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED)) {
 			states = PAUSED;
 			break;
 		}
+
+
+		hud.UpdateScore(score.GetScore());
+
+
 		break;
 	case GameState::PAUSED:
 		SM->SetScene("Pause Menu");

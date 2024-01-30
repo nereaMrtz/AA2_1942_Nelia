@@ -12,7 +12,7 @@ HUD::HUD()
 	scoreText.position[0] = RM->windowWidth/6;
 	scoreText.position[1] = RM->windowHeight - 450;
 
-	score = 000001;
+	score = 0;
 	std::string textInt = std::to_string(score);
 	scoreNum.text = textInt;
 	scoreNum.position[0] = scoreText.position[0] + scoreText.text.length() + 60;
@@ -99,6 +99,15 @@ void HUD::Render()
 
 	SDL_FreeSurface(numSurface);
 	SDL_DestroyTexture(numTexture);
+}
+
+void HUD::UpdateScore(int score)
+{
+	this->score = score;
+	std::string textInt = std::to_string(score);
+	scoreNum.text = textInt;
+	scoreNum.position[0] = scoreText.position[0] + scoreText.text.length() + 60;
+	scoreNum.position[1] = RM->windowHeight - 450;
 }
 
 

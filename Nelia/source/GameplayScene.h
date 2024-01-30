@@ -13,6 +13,7 @@
 #include "TextRenderer.h"
 #include "HUD.h"
 #include "GameState.h"
+#include "ScoreManager.h"
 
 class GameplayScene : public Scene
 {
@@ -23,6 +24,7 @@ private:
 	std::vector<Wave*> waves;
 
 	GameState states;
+	ScoreManager score;
 
 	float timer;
 	float spawnerTime;
