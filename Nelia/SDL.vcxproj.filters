@@ -42,6 +42,7 @@
     <ClCompile Include="source\Wave.cpp" />
     <ClCompile Include="source\ScoreManager.cpp" />
     <ClCompile Include="source\RankingScene.cpp" />
+    <ClCompile Include="source\HighscoreManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\AABB.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="source\WaveType.h" />
     <ClInclude Include="source\ScoreManager.h" />
     <ClInclude Include="source\RankingScene.h" />
+    <ClInclude Include="source\HighscoreManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\stage_0.xml" />

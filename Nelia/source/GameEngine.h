@@ -2,6 +2,7 @@
 #include<SDL.h>
 #include"InputManager.h"
 #include "SceneManager.h"
+#include "HighscoreManager.h"
 #include "SplashScreenScene.h"
 #include "GameplayScene.h"
 #include "MainMenuScene.h"

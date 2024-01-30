@@ -18,12 +18,12 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 		doc.parse<0>(&content[0]);
 
 
-		rapidxml::xml_node<>* pRoot = doc.first_node();
+		rapidxml::xml_node<>* pRoot = doc.first_node(); //stage
 
-		levelTime = (stof((std::string)pRoot->first_node()->value()));
+		levelTime = (stof((std::string)pRoot->first_node()->value())); // totaltime 50
 		std::cout << levelTime << std::endl;
 
-		for (rapidxml::xml_node<>* pNode = pRoot->first_node()->next_sibling(); pNode; pNode = pNode->next_sibling()) {
+		for (rapidxml::xml_node<>* pNode = pRoot->first_node()->next_sibling(); pNode; pNode = pNode->next_sibling()) { //wave
 
 			float startTime = stof((std::string)pNode->first_node()->value());
 			//pRoot = pRoot->next_sibling();
@@ -34,10 +34,10 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 			//pRoot = pRoot->next_sibling();
 			int amount = std::stoi(pNode->first_node()->next_sibling()->next_sibling()->value());
 
-			std::cout << startTime << std::endl;
-			std::cout << pattern << std::endl;
-			std::cout << type << std::endl;
-			std::cout << amount << std::endl;
+		//	std::cout << startTime << std::endl;
+		//	std::cout << pattern << std::endl;
+		//	std::cout << type << std::endl;
+		//	std::cout << amount << std::endl;
 
 			MovementPattern pat;
 			WaveType ty;
@@ -75,8 +75,35 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 
 	}
 	else {
-		std::cout << path << std::endl;
+		//std::cout << path << std::endl;
 	}
 
 	return waves;
 }
+
+void LevelLoader::LoadRanking(std::string path)
+{
+	rapidxml::xml_document<> doc;
+	std::ifstream file(path);
+	if (file.is_open()) {
+		std::stringstream buffer;
+		buffer << file.rdbuf();
+		file.close();
+		std::string content(buffer.str());
+		doc.parse<0>(&content[0]);
+
+
+		rapidxml::xml_node<>* pRoot = doc.first_node(); // players
+
+		for (rapidxml::xml_node<>* pNode = pRoot->first_node(); pNode; pNode = pNode->next_sibling()) {
+
+			std::string name = pNode->first_node()->value();
+			
+			int score = std::stoi(pNode->first_node()->next_sibling()->value());
+
+			std::cout << name << std::endl;
+			std::cout << score << std::endl;
+		}
+	}
+}
+

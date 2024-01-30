@@ -5,6 +5,7 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "RenderManager.h"
+#include "HighscoreManager.h"
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
 #include "Player.h"

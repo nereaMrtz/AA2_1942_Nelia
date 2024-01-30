@@ -11,6 +11,8 @@ GameplayScene::GameplayScene()
 
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+	HM->LoadScores("resources/ranking.xml");
+	//loader.LoadRanking("resources/ranking.xml");
 
 	timer = 0;
 	spawnerTime = 0;
