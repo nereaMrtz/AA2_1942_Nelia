@@ -10,6 +10,7 @@
 #include "Tile.h"
 #include "PauseMenu.h"
 #include "GameOver.h"
+#include "RankingScene.h"
 
 class GameEngine
 {

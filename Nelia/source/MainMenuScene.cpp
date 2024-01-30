@@ -51,8 +51,7 @@ void MainMenuScene::Update(float dt)
 	if (isInsideAABBXRanking && isInsideAABBYRanking) {
 		buttonAngleRanking += 0.05;
 		if (SDL_GetMouseState(&mouseXRanking, &mouseYRanking) & SDL_BUTTON(SDL_BUTTON_LEFT))
-			// Ranking scene (no ta :)
-			SM->SetScene("");
+			SM->SetScene("Ranking");
 	}
 	else
 		buttonAngleRanking = 0;

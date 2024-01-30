@@ -20,6 +20,7 @@ void GameEngine::Run(){
 	SM->AddScene("Main Menu", new MainMenuScene());
 	SM->AddScene("Gameplay Scene", new GameplayScene());
 	SM->AddScene("Pause Menu", new PauseMenu());
+	SM->AddScene("Ranking", new RankingScene());
 	SM->AddScene("Game Over", new GameOver());
 
 	while (isRunning)
