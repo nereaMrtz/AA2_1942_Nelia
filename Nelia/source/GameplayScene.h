@@ -12,24 +12,24 @@
 #include "LevelLoader.h"
 #include "TextRenderer.h"
 #include "HUD.h"
-
-
+#include "GameState.h"
 
 class GameplayScene : public Scene
 {
 private:
-
 	Tile background;
 	Player* player;
 	//std::vector<EnemyPlane*> normalPlanes;
 	std::vector<Wave*> waves;
 
-	float timer;
+	GameState states;
 
+	float timer;
 	float spawnerTime;
 
 	bool spawn;
 	HUD hud;
+	bool death;
 
 public:
 	GameplayScene();
@@ -40,6 +40,9 @@ public:
 
 	void RestartTimer();
 	void RestartLevel();
+
+	GameState GetState();
+	void SetState(GameState states);
 
 	float levelTime;
 };

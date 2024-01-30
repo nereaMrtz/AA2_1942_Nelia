@@ -186,14 +186,13 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\AABB.cpp" />
     <ClCompile Include="source\AnimatedImageRenderer.cpp" />
     <ClCompile Include="source\BigGreenPlane.cpp" />
-    <ClCompile Include="source\Button.cpp" />
     <ClCompile Include="source\EndTileItem.cpp" />
     <ClCompile Include="source\EnemyBullet.cpp" />
     <ClCompile Include="source\EnemyPlane.cpp" />
     <ClCompile Include="source\GameEngine.cpp" />
     <ClCompile Include="source\GameObject.cpp" />
+    <ClCompile Include="source\GameOver.cpp" />
     <ClCompile Include="source\GameplayScene.cpp" />
-    <ClCompile Include="source\GrayPowerUp.cpp" />
     <ClCompile Include="source\GreenPowerUp.cpp" />
     <ClCompile Include="source\HUD.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
@@ -202,6 +201,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\Main.cpp" />
     <ClCompile Include="source\MainMenuScene.cpp" />
     <ClCompile Include="source\Object.cpp" />
+    <ClCompile Include="source\PauseMenu.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerBullet.cpp" />
     <ClCompile Include="source\PowerUp.cpp" />
@@ -222,20 +222,19 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClCompile Include="source\Transform.cpp" />
     <ClCompile Include="source\Vector2.cpp" />
     <ClCompile Include="source\Wave.cpp" />
-    <ClCompile Include="source\WhitePowerUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\AABB.h" />
     <ClInclude Include="source\AnimatedImageRenderer.h" />
     <ClInclude Include="source\BigGreenPlane.h" />
-    <ClInclude Include="source\Button.h" />
     <ClInclude Include="source\EndTileItem.h" />
     <ClInclude Include="source\EnemyBullet.h" />
     <ClInclude Include="source\EnemyPlane.h" />
     <ClInclude Include="source\GameEngine.h" />
     <ClInclude Include="source\GameObject.h" />
+    <ClInclude Include="source\GameOver.h" />
     <ClInclude Include="source\GameplayScene.h" />
-    <ClInclude Include="source\GrayPowerUp.h" />
+    <ClInclude Include="source\GameState.h" />
     <ClInclude Include="source\GreenPowerUp.h" />
     <ClInclude Include="source\HUD.h" />
     <ClInclude Include="source\ImageRenderer.h" />
@@ -245,6 +244,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClInclude Include="source\MovementPattern.h" />
     <ClInclude Include="source\MovementType.h" />
     <ClInclude Include="source\Object.h" />
+    <ClInclude Include="source\PauseMenu.h" />
     <ClInclude Include="source\Player.h" />
     <ClInclude Include="source\PlayerBullet.h" />
     <ClInclude Include="source\PowerUp.h" />
@@ -268,7 +268,6 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
     <ClInclude Include="source\Vector2.h" />
     <ClInclude Include="source\Wave.h" />
     <ClInclude Include="source\WaveType.h" />
-    <ClInclude Include="source\WhitePowerUp.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\stage_0.xml" />

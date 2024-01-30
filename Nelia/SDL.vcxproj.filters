@@ -66,9 +66,6 @@
     <ClCompile Include="source\TextObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -114,16 +111,10 @@
     <ClCompile Include="source\SmallYellowPlane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GrayPowerUp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\GreenPowerUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\PowerUp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\WhitePowerUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Wave.cpp">
@@ -132,7 +123,14 @@
     <ClCompile Include="source\LevelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="source\HUD.cpp">
+=======
+    <ClCompile Include="source\GameOver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PauseMenu.cpp">
+>>>>>>> feature/moreScenes
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -191,9 +189,6 @@
     <ClInclude Include="source\TextObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -242,16 +237,10 @@
     <ClInclude Include="source\MovementType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\GrayPowerUp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\GreenPowerUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\PowerUp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\WhitePowerUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\MovementPattern.h">
@@ -266,7 +255,17 @@
     <ClInclude Include="source\LevelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="source\HUD.h">
+=======
+    <ClInclude Include="source\GameOver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PauseMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameState.h">
+>>>>>>> feature/moreScenes
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

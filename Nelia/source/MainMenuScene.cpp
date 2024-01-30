@@ -4,7 +4,7 @@ MainMenuScene::MainMenuScene()
 {
 	background = Tile(false);
 
-	// ------ BACKGROUND TEXTURE
+	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
 }
 
@@ -97,7 +97,6 @@ void MainMenuScene::Update(float dt)
 	if (isInsideAABBXExit && isInsideAABBYExit) {
 		buttonAngleExit += 0.05;
 		if (SDL_GetMouseState(&mouseXExit, &mouseYExit) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-
 			RM->Quit();
 		}
 	}

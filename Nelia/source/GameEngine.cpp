@@ -19,6 +19,8 @@ void GameEngine::Run(){
 	SM->SetScene("Splash Screen");
 	SM->AddScene("Main Menu", new MainMenuScene());
 	SM->AddScene("Gameplay Scene", new GameplayScene());
+	SM->AddScene("Pause Menu", new PauseMenu());
+	SM->AddScene("Game Over", new GameOver());
 
 	while (isRunning)
 	{
