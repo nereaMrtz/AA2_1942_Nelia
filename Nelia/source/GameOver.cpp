@@ -6,14 +6,13 @@ GameOver::GameOver()
 
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
-
 }
 
 void GameOver::Update(float dt)
 {
 	//Check if the mouse is inside the render rect
-	int width = 28 * backToMenu.text.length();
-	int height = 50;
+	int width = 18 * backToMenu.text.length();
+	int height = 40;
 
 	int X = backToMenu.position[0] - (width / 2);
 	int Y = backToMenu.position[1] - height / 2;
@@ -28,9 +27,11 @@ void GameOver::Update(float dt)
 		buttonAngle += 0.05;
 		if (SDL_GetMouseState(&mouseX, &mouseY) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
 			SM->SetScene("Main Menu");
-			OnExit();
 		}
 	}
+
+	else
+		buttonAngle = 0;
 }
 
 void GameOver::Render(SDL_Renderer*)
@@ -90,7 +91,7 @@ void GameOver::OnEnter()
 
 	backToMenu.text = "Back to Menu";
 	backToMenu.position[0] = 250;
-	backToMenu.position[1] = 250;
+	backToMenu.position[1] = 400;
 	buttonAngle = 0;
 }
 

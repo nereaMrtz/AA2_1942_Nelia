@@ -5,7 +5,6 @@ GameplayScene::GameplayScene()
 	states = GameState::GAMEPLAY;
 	background = Tile(false);
 	player = new Player();
-	death = false;
 
 	background.LoadTexture(RM->GetRenderer(), "resources/WaterBackground.png", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 10, 10 }, 0, 0, false, 0);
 
@@ -39,9 +38,10 @@ void GameplayScene::Update(float dt)
 					player->Death();
 					enemy->Destroy();
 					score.AddScore(10);
-					std::cout << "chocaaao" << std::endl;
-					if (player->isDead())
+
+					if (player->isDead()) {
 						states = DEATH;
+					}
 				}
 				else
 				{
@@ -86,11 +86,18 @@ void GameplayScene::Update(float dt)
 		std::cout << "PAUSADO";
 		states = GAMEPLAY;
 		break;
+
 	case GameState::FINISH_STAGE:
 		break;
+
 	case GameState::DEATH:
 		SM->SetScene("Game Over");
+
+		RestartLevel();
+		RestartTimer();
+		states = GAMEPLAY;
 		break;
+
 	default:
 		break;
 	}
@@ -112,8 +119,8 @@ void GameplayScene::Render(SDL_Renderer*)
 
 void GameplayScene::OnEnter()
 {
-	//LevelLoader loader;
-	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+	LevelLoader loader;
+	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 
 }
 
@@ -125,10 +132,22 @@ void GameplayScene::OnExit()
 
 void GameplayScene::RestartTimer()
 {
+	timer = 0;
+	spawnerTime = 0;
+	spawn = false;
 }
 
 void GameplayScene::RestartLevel()
 {
+	delete player;
+
+	player = new Player();
+
+	score.AddScore(-score.GetScore());
+
+	//LevelLoader loader;
+	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+	HM->LoadScores("resources/ranking.xml");
 }
 
 GameState GameplayScene::GetState()

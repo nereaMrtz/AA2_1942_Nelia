@@ -32,7 +32,6 @@ private:
 
 	bool spawn;
 	HUD hud;
-	bool death;
 
 public:
 	GameplayScene();

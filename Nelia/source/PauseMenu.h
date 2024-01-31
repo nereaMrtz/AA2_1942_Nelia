@@ -21,6 +21,7 @@ private:
 	TTF_Font* font;
 
 	float buttonAngle;
+	float timer;
 
 public:
 	PauseMenu();

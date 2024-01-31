@@ -3,17 +3,17 @@
 PauseMenu::PauseMenu()
 {
 	background = Tile(false);
+	timer = 0.f;
 
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
-
 }
 
 void PauseMenu::Update(float dt)
 {
 	//Check if the mouse is inside the render rect
-	int width = 28 * resume.text.length();
-	int height = 50;
+	int width = 18 * resume.text.length();
+	int height = 40;
 
 	int X = resume.position[0] - (width / 2);
 	int Y = resume.position[1] - height / 2;
@@ -28,12 +28,10 @@ void PauseMenu::Update(float dt)
 		buttonAngle += 0.05;
 		if (SDL_GetMouseState(&mouseX, &mouseY) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
 			SM->SetScene("Gameplay Scene");
-			OnExit();
 		}
 	}
-	if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED)) {
-		SM->GetScene("Gameplay Scene");
-		OnExit();
+	if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED) && timer <= 0.5f) {
+		SM->SetScene("Gameplay Scene");
 	}
 	else
 		buttonAngle = 0;
@@ -98,7 +96,6 @@ void PauseMenu::OnEnter() {
 }
 
 void PauseMenu::OnExit() {
-	//SM->SetScene("Gameplay Scene");
 }
 
 void PauseMenu::DestroySurfaceAndTexture()

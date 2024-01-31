@@ -17,11 +17,11 @@ void GameEngine::Init()
 void GameEngine::Run(){
 	SM->AddScene("Splash Screen", new SplashScreenScene());
 	SM->SetScene("Splash Screen");
+	SM->AddScene("Game Over", new GameOver());
 	SM->AddScene("Main Menu", new MainMenuScene());
 	SM->AddScene("Gameplay Scene", new GameplayScene());
 	SM->AddScene("Pause Menu", new PauseMenu());
 	SM->AddScene("Ranking", new RankingScene());
-	SM->AddScene("Game Over", new GameOver());
 
 	while (isRunning)
 	{

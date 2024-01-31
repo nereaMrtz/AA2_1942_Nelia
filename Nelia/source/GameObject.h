@@ -3,6 +3,7 @@
 #include<string>
 #include<SDL_image.h>
 #include <vector>
+#include <iostream>
 
 #include "Object.h"
 #include "ImageRenderer.h"
