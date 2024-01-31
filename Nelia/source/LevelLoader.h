@@ -16,5 +16,6 @@ public:
 	LevelLoader();
 
 	std::vector<Wave*> LoadWaves(std::string path, float levelTime);
+	void LoadRanking(std::string path);
 };
 

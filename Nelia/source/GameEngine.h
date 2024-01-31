@@ -2,12 +2,16 @@
 #include<SDL.h>
 #include"InputManager.h"
 #include "SceneManager.h"
+#include "HighscoreManager.h"
 #include "SplashScreenScene.h"
 #include "GameplayScene.h"
 #include "MainMenuScene.h"
 #include "RenderManager.h"
 #include "TimeManager.h"
 #include "Tile.h"
+#include "PauseMenu.h"
+#include "GameOver.h"
+#include "RankingScene.h"
 
 class GameEngine
 {

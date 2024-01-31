@@ -5,28 +5,33 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "RenderManager.h"
+#include "HighscoreManager.h"
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
 #include "Player.h"
 #include "SmallNormalPlane.h"
 #include "LevelLoader.h"
-
-
+#include "TextRenderer.h"
+#include "HUD.h"
+#include "GameState.h"
+#include "ScoreManager.h"
 
 class GameplayScene : public Scene
 {
 private:
-
 	Tile background;
 	Player* player;
 	//std::vector<EnemyPlane*> normalPlanes;
 	std::vector<Wave*> waves;
 
-	float timer;
+	GameState states;
+	ScoreManager score;
 
+	float timer;
 	float spawnerTime;
 
 	bool spawn;
+	HUD hud;
 
 public:
 	GameplayScene();
@@ -37,6 +42,9 @@ public:
 
 	void RestartTimer();
 	void RestartLevel();
+
+	GameState GetState();
+	void SetState(GameState states);
 
 	float levelTime;
 };

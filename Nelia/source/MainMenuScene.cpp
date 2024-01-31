@@ -4,7 +4,7 @@ MainMenuScene::MainMenuScene()
 {
 	background = Tile(false);
 
-	// ------ BACKGROUND TEXTURE
+	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
 }
 
@@ -12,8 +12,8 @@ void MainMenuScene::Update(float dt)
 {
 	// ------ BUTTON PLAY
 	//Check if the mouse is inside the render rect
-	int widthPlay = 28 * playText.text.length();
-	int heightPlay = 50;
+	int widthPlay = 18 * playText.text.length();
+	int heightPlay = 40;
 
 	int XPlay = playText.position[0] - (widthPlay / 2);
 	int YPlay = playText.position[1] - heightPlay / 2;
@@ -36,8 +36,8 @@ void MainMenuScene::Update(float dt)
 
 	// ------ BUTTON RANKING
 	//Check if the mouse is inside the render rect
-	int widthRanking = 28 * rankingText.text.length();
-	int heightRanking = 50;
+	int widthRanking = 18 * rankingText.text.length();
+	int heightRanking = 40;
 
 	int XRanking = rankingText.position[0] - (widthRanking / 2);
 	int YRanking = rankingText.position[1] - heightRanking / 2;
@@ -51,16 +51,15 @@ void MainMenuScene::Update(float dt)
 	if (isInsideAABBXRanking && isInsideAABBYRanking) {
 		buttonAngleRanking += 0.05;
 		if (SDL_GetMouseState(&mouseXRanking, &mouseYRanking) & SDL_BUTTON(SDL_BUTTON_LEFT))
-			// Ranking scene (no ta :)
-			SM->SetScene("");
+			SM->SetScene("Ranking");
 	}
 	else
 		buttonAngleRanking = 0;
 
 	// ------ BUTTON AUDIO
 	//Check if the mouse is inside the render rect
-	int widthAudio = 28 * audioText.text.length();
-	int heightAudio = 50;
+	int widthAudio = 18 * audioText.text.length();
+	int heightAudio = 40;
 
 	int XAudio = audioText.position[0] - (widthAudio / 2);
 	int YAudio = audioText.position[1] - heightAudio / 2;
@@ -82,8 +81,8 @@ void MainMenuScene::Update(float dt)
 
 	// ------ BUTTON EXIT
 	//Check if the mouse is inside the render rect
-	int widthExit = 28 * exitText.text.length();
-	int heightExit = 50;
+	int widthExit = 18 * exitText.text.length();
+	int heightExit = 40;
 
 	int XExit = exitText.position[0] - (widthExit / 2);
 	int YExit = exitText.position[1] - heightExit / 2;
@@ -97,7 +96,6 @@ void MainMenuScene::Update(float dt)
 	if (isInsideAABBXExit && isInsideAABBYExit) {
 		buttonAngleExit += 0.05;
 		if (SDL_GetMouseState(&mouseXExit, &mouseYExit) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-
 			RM->Quit();
 		}
 	}
@@ -281,6 +279,8 @@ void MainMenuScene::Render(SDL_Renderer* renderer)
 }
 
 void MainMenuScene::OnEnter(){
+	
+	std::cout << "ENTRO MAIN MENU" << std::endl;
 	//INIT TTF
 	assert(TTF_Init() != -1);
 
@@ -288,28 +288,29 @@ void MainMenuScene::OnEnter(){
 	assert(font != nullptr);
 
 	playText.text = "Play";
-	playText.position[0] = 250;
-	playText.position[1] = 150;
+	playText.position[0] = 260;
+	playText.position[1] = 130;
 	buttonAnglePlay = 0;
 	
 	rankingText.text = "Ranking";
-	rankingText.position[0] = 250;
-	rankingText.position[1] = 210;
+	rankingText.position[0] = 260;
+	rankingText.position[1] = 190;
 	buttonAngleRanking = 0;
 
 	audioText.text = "Audio";
-	audioText.position[0] = 250;
-	audioText.position[1] = 270;
+	audioText.position[0] = 260;
+	audioText.position[1] = 250;
 	buttonAngleAudio = 0;
 
 	exitText.text = "Exit";
-	exitText.position[0] = 250;
-	exitText.position[1] = 340;
+	exitText.position[0] = 260;
+	exitText.position[1] = 310;
 	buttonAngleExit = 0;
 }
 
 void MainMenuScene::OnExit(){
-	
+	//DestroySurfaceAndTexture();
+	std::cout << "SALGO MAIN MENU" << std::endl;
 }
 
 void MainMenuScene::DestroySurfaceAndTexture()

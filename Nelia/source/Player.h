@@ -18,6 +18,7 @@ private:
 	bool damage;
 	bool canTakeLife;
 	bool resetTimer;
+	bool dead;
 
 	int currentAnim;
 	int lives;
@@ -43,6 +44,7 @@ public:
 	void OnCollisionEnter(Object* other) override;
 
 	void ResetTimer();
+	bool isDead();
 
 	std::vector<PlayerBullet*>& GetBullets();
 };
