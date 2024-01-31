@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "InputManager.h"
 #include "SceneManager.h"
+#include "AudioManager.h"
 #include "GameEngine.h"
 #include "UIText.h"
 #include "SDL_ttf.h"
@@ -32,6 +33,8 @@ private:
 	float buttonAngleRanking;
 	float buttonAngleAudio;
 	float buttonAngleExit;
+
+	bool isAudioOn;
 
 public:
 	MainMenuScene();

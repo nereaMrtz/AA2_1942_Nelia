@@ -4,6 +4,8 @@ MainMenuScene::MainMenuScene()
 {
 	background = Tile(false);
 
+	isAudioOn = true;
+
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
 }
@@ -72,9 +74,20 @@ void MainMenuScene::Update(float dt)
 
 	if (isInsideAABBXAudio && isInsideAABBYAudio) {
 		buttonAngleAudio += 0.05;
-		if (SDL_GetMouseState(&mouseXAudio, &mouseYAudio) & SDL_BUTTON(SDL_BUTTON_LEFT))
-			// Audio scene (no ta :)
-			SM->SetScene("");
+		if (SDL_GetMouseState(&mouseXAudio, &mouseYAudio) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+			isAudioOn = !isAudioOn;
+			if (isAudioOn)
+			{
+				audioText.text = "Audio On";
+				AM->ToggleAudio();
+				AM->PlayMusic("musicaMenu");
+			}
+			else
+			{
+				audioText.text = "Audio Off";
+				AM->ToggleAudio();
+			}
+		}
 	}
 	else
 		buttonAngleAudio = 0;
@@ -281,6 +294,8 @@ void MainMenuScene::Render(SDL_Renderer* renderer)
 void MainMenuScene::OnEnter(){
 	
 	std::cout << "ENTRO MAIN MENU" << std::endl;
+
+
 	//INIT TTF
 	assert(TTF_Init() != -1);
 
@@ -297,7 +312,7 @@ void MainMenuScene::OnEnter(){
 	rankingText.position[1] = 190;
 	buttonAngleRanking = 0;
 
-	audioText.text = "Audio";
+	audioText.text = "Audio On";
 	audioText.position[0] = 260;
 	audioText.position[1] = 250;
 	buttonAngleAudio = 0;
@@ -306,11 +321,15 @@ void MainMenuScene::OnEnter(){
 	exitText.position[0] = 260;
 	exitText.position[1] = 310;
 	buttonAngleExit = 0;
+
+	AM->PlayMusic("musicaMenu");
 }
 
 void MainMenuScene::OnExit(){
 	//DestroySurfaceAndTexture();
 	std::cout << "SALGO MAIN MENU" << std::endl;
+
+	AM->MuteAudio();
 }
 
 void MainMenuScene::DestroySurfaceAndTexture()
