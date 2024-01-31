@@ -22,5 +22,7 @@ private:
 public:
 	static HighscoreManager* GetInstance();
 	void LoadScores(std::string path);
+	void SaveScores(std::string path);
+	void AddScore(int value, std::string name);
 };
 

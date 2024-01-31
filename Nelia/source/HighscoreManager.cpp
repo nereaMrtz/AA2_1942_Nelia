@@ -39,3 +39,30 @@ void HighscoreManager::LoadScores(std::string path)
 		}
 	}
 }
+
+void HighscoreManager::SaveScores(std::string path)
+{
+	std::ofstream myFile;
+
+	myFile.open("resources/ranking.dat");
+	std::cout << "entro" << std::endl;
+
+	if (myFile.is_open()) {
+		
+		for (auto it = scores.begin(); it != scores.end(); it++) {
+
+			size_t size = it->second.size();
+
+
+			//myFile << it->first;
+			//myFile << it->second;
+
+			myFile.write(it->second.c_str(), size);
+		}
+	}
+}
+
+void HighscoreManager::AddScore(int value, std::string name)
+{
+	scores.insert(std::pair<int,std::string>(value, name));
+}
