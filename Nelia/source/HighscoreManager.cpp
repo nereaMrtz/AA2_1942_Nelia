@@ -4,6 +4,7 @@ HighscoreManager* HighscoreManager::instance = nullptr;
 
 HighscoreManager::HighscoreManager()
 {
+	//scores.insert(std::pair<int, std::string>(0, " "));
 }
 
 HighscoreManager* HighscoreManager::GetInstance()
@@ -91,6 +92,7 @@ void HighscoreManager::ReadScores()
 
 		std::string buffer;
 		std::string bufferAux;
+		std::string otherString;
 
 		buffer.resize(totalSize);
 		myFile.read(&buffer[0], buffer.size());
@@ -106,6 +108,7 @@ void HighscoreManager::ReadScores()
 
 				if (isNum) {
 					if (buffer[i] == ' ') {
+						ptr = &size;
 						myFile.read(&bufferAux[*ptr], size);
 						std::string newString = bufferAux.substr(lastSizeNum, size);
 						bufferAux.resize(size + 1);
@@ -114,8 +117,9 @@ void HighscoreManager::ReadScores()
 
 						bufferAux = buffer;
 						bufferAux.resize(buffer.size() + 1);
-						
-						ptr = &size;
+						//otherString = bufferAux.substr(bufferAux[size], bufferAux.size());
+
+						//std::cout << otherString << std::endl;
 
 						size = 0;
 						isNum = false;
@@ -134,6 +138,7 @@ void HighscoreManager::ReadScores()
 						lastSizeNum++;
 					}
 					else{
+						ptr = &size;
 						myFile.read(&bufferAux[*ptr], size);
 						std::string newString = bufferAux.substr(lastSizeName, size);
 						bufferAux.resize(size + 1);
@@ -153,6 +158,11 @@ void HighscoreManager::ReadScores()
 					}
 
 				}
+			}
+			else if(buffer[i] == 1) {
+				lastSizeNum++;
+				lastSizeName++;
+				std::cout << "SOH" << std::endl;
 			}
 			else {
 				lastSizeNum++;

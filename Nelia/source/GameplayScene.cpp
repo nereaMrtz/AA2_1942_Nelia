@@ -11,8 +11,9 @@ GameplayScene::GameplayScene()
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 	//HM->LoadScores("resources/rankingprueba.xml");
-	HM->AddScore(50, "lasilasi");
+	HM->AddScore(20, "lasilasi");
 	HM->AddScore(10, "ginagineta");
+	HM->AddScore(52, "nimasporfa");
 	HM->SaveScores("resources/ranking.dat");
 	HM->ReadScores();
 
