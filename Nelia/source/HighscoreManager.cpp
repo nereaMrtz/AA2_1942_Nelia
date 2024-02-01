@@ -104,7 +104,14 @@ void HighscoreManager::ReadScores()
 
 			//ptr = &i;
 
-			if (buffer[i] != '\0') {
+			if(buffer[i] == '\b' || buffer[i] == '\r' || buffer[i] == '\n') {
+				lastSizeNum++;
+				lastSizeName++;
+				//size++;
+				size = 0;
+				std::cout << "SOH" << std::endl;
+			}
+			else if (buffer[i] != '\0') {
 
 				if (isNum) {
 					if (buffer[i] == ' ') {
@@ -120,7 +127,6 @@ void HighscoreManager::ReadScores()
 						//otherString = bufferAux.substr(bufferAux[size], bufferAux.size());
 
 						//std::cout << otherString << std::endl;
-
 						size = 0;
 						isNum = false;
 
@@ -149,24 +155,18 @@ void HighscoreManager::ReadScores()
 						bufferAux = buffer;
 						bufferAux.resize(buffer.size() + 1);
 
-						
 						size = 0;
 						isNum = true;
 
 						lastSizeNum++;
 
 					}
-
 				}
-			}
-			else if(buffer[i] == 1) {
-				lastSizeNum++;
-				lastSizeName++;
-				std::cout << "SOH" << std::endl;
 			}
 			else {
 				lastSizeNum++;
 				lastSizeName++;
+				size++;
 			}
 
 		}
