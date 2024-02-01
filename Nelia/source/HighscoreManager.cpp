@@ -52,17 +52,116 @@ void HighscoreManager::SaveScores(std::string path)
 		for (auto it = scores.begin(); it != scores.end(); it++) {
 
 			size_t size = it->second.size();
+			myFile.write(reinterpret_cast<char*>(&size), sizeof(size));
 
+			myFile << it->first << ' ';
+			myFile << it->second << '-' << '\0';
 
-			//myFile << it->first;
-			//myFile << it->second;
+			//myFile.write(it->second.c_str(), size);
+			//myFile << ' ';
 
-			myFile.write(it->second.c_str(), size);
+			//std::cout << it->second.c_str() << std::endl;
 		}
 	}
+	myFile.close();
 }
 
 void HighscoreManager::AddScore(int value, std::string name)
 {
 	scores.insert(std::pair<int,std::string>(value, name));
+}
+
+void HighscoreManager::ReadScores()
+{
+	std::string substr(size_t pos = 0, size_t len = std::string::npos);
+
+	bool isNum = true;
+	int size = 0;
+	int lastSizeNum = 0;
+	int lastSizeName = 0;
+	int scoreValue = 0;
+
+	std::ifstream myFile;
+	myFile.open("resources/ranking.dat", std::ios::in | std::ios::binary);
+
+	if (myFile.is_open()) {
+
+		size_t totalSize = 0;
+		myFile.read(reinterpret_cast<char*>(&totalSize), sizeof(totalSize));
+
+		std::string buffer;
+		std::string bufferAux;
+
+		buffer.resize(totalSize);
+		myFile.read(&buffer[0], buffer.size());
+
+		int* ptr = new int(0);
+
+		bufferAux = buffer;
+		for (auto i = 0; i != totalSize + 1; i++) {
+
+			//ptr = &i;
+
+			if (buffer[i] != '\0') {
+
+				if (isNum) {
+					if (buffer[i] == ' ') {
+						myFile.read(&bufferAux[*ptr], size);
+						std::string newString = bufferAux.substr(lastSizeNum, size);
+						bufferAux.resize(size + 1);
+						
+						std::cout << newString <<std::endl;
+
+						bufferAux = buffer;
+						bufferAux.resize(buffer.size() + 1);
+						
+						ptr = &size;
+
+						size = 0;
+						isNum = false;
+
+						lastSizeName++;
+
+					}
+					else {
+						size++;
+						lastSizeName++;
+					}
+				}
+				else {
+					if (buffer[i] != '-') {
+						size++;
+						lastSizeNum++;
+					}
+					else{
+						myFile.read(&bufferAux[*ptr], size);
+						std::string newString = bufferAux.substr(lastSizeName, size);
+						bufferAux.resize(size + 1);
+
+
+						std::cout << newString << std::endl;
+
+						bufferAux = buffer;
+						bufferAux.resize(buffer.size() + 1);
+
+						
+						size = 0;
+						isNum = true;
+
+						lastSizeNum++;
+
+					}
+
+				}
+			}
+			else {
+				lastSizeNum++;
+				lastSizeName++;
+			}
+
+		}
+
+	}
+	myFile.close();
+
 }

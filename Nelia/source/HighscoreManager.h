@@ -18,11 +18,13 @@ private:
 	HighscoreManager();
 
 	std::map<int, std::string> scores;
+	std::map<int, std::string> loadScore;
 
 public:
 	static HighscoreManager* GetInstance();
 	void LoadScores(std::string path);
 	void SaveScores(std::string path);
 	void AddScore(int value, std::string name);
+	void ReadScores();
 };
 

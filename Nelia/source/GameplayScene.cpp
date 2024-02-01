@@ -14,6 +14,7 @@ GameplayScene::GameplayScene()
 	HM->AddScore(50, "lasilasi");
 	HM->AddScore(10, "ginagineta");
 	HM->SaveScores("resources/ranking.dat");
+	HM->ReadScores();
 
 	timer = 0;
 	spawnerTime = 0;
