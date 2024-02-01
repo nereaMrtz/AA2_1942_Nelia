@@ -93,14 +93,16 @@ void PauseMenu::OnEnter() {
 	resume.position[0] = 250;
 	resume.position[1] = 250;
 	buttonAngle = 0;
+
+	AM->PlayClip("musicaMenu", 2);
 }
 
 void PauseMenu::OnExit() {
+	AM->MuteAudio();
 }
 
 void PauseMenu::DestroySurfaceAndTexture()
 {
-
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
 }

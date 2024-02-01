@@ -185,6 +185,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
   <ItemGroup>
     <ClCompile Include="source\AABB.cpp" />
     <ClCompile Include="source\AnimatedImageRenderer.cpp" />
+    <ClCompile Include="source\AudioManager.cpp" />
     <ClCompile Include="source\BigGreenPlane.cpp" />
     <ClCompile Include="source\EndTileItem.cpp" />
     <ClCompile Include="source\EnemyBullet.cpp" />
@@ -229,6 +230,7 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
   <ItemGroup>
     <ClInclude Include="source\AABB.h" />
     <ClInclude Include="source\AnimatedImageRenderer.h" />
+    <ClInclude Include="source\AudioManager.h" />
     <ClInclude Include="source\BigGreenPlane.h" />
     <ClInclude Include="source\EndTileItem.h" />
     <ClInclude Include="source\EnemyBullet.h" />

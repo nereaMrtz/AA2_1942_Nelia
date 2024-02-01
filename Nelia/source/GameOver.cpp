@@ -29,7 +29,6 @@ void GameOver::Update(float dt)
 			SM->SetScene("Main Menu");
 		}
 	}
-
 	else
 		buttonAngle = 0;
 }
@@ -78,7 +77,6 @@ void GameOver::Render(SDL_Renderer*)
 
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
-
 }
 
 void GameOver::OnEnter()
@@ -93,8 +91,11 @@ void GameOver::OnEnter()
 	backToMenu.position[0] = 250;
 	backToMenu.position[1] = 400;
 	buttonAngle = 0;
+
+	AM->PlayClip("musicaMenu", 1);
 }
 
 void GameOver::OnExit()
 {
+	AM->MuteAudio();
 }

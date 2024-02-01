@@ -3,6 +3,7 @@
 #include "UIText.h"
 #include "Tile.h"
 #include "InputManager.h"
+#include "AudioManager.h"
 
 class GameOver : public Scene {
 private:

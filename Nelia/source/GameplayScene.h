@@ -6,6 +6,7 @@
 #include "SceneManager.h"
 #include "RenderManager.h"
 #include "HighscoreManager.h"
+#include "AudioManager.h"
 #include "AnimatedImageRenderer.h"
 #include "Tile.h"
 #include "Player.h"

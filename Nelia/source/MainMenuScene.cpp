@@ -4,6 +4,8 @@ MainMenuScene::MainMenuScene()
 {
 	background = Tile(false);
 
+	isAudioOn = true;
+
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
 }
@@ -12,7 +14,7 @@ void MainMenuScene::Update(float dt)
 {
 	// ------ BUTTON PLAY
 	//Check if the mouse is inside the render rect
-	int widthPlay = 18 * playText.text.length();
+	int widthPlay = 28 * playText.text.length();
 	int heightPlay = 40;
 
 	int XPlay = playText.position[0] - (widthPlay / 2);
@@ -36,7 +38,7 @@ void MainMenuScene::Update(float dt)
 
 	// ------ BUTTON RANKING
 	//Check if the mouse is inside the render rect
-	int widthRanking = 18 * rankingText.text.length();
+	int widthRanking = 28 * rankingText.text.length();
 	int heightRanking = 40;
 
 	int XRanking = rankingText.position[0] - (widthRanking / 2);
@@ -58,7 +60,7 @@ void MainMenuScene::Update(float dt)
 
 	// ------ BUTTON AUDIO
 	//Check if the mouse is inside the render rect
-	int widthAudio = 18 * audioText.text.length();
+	int widthAudio = 28 * audioText.text.length();
 	int heightAudio = 40;
 
 	int XAudio = audioText.position[0] - (widthAudio / 2);
@@ -72,16 +74,27 @@ void MainMenuScene::Update(float dt)
 
 	if (isInsideAABBXAudio && isInsideAABBYAudio) {
 		buttonAngleAudio += 0.05;
-		if (SDL_GetMouseState(&mouseXAudio, &mouseYAudio) & SDL_BUTTON(SDL_BUTTON_LEFT))
-			// Audio scene (no ta :)
-			SM->SetScene("");
+		if (SDL_GetMouseState(&mouseXAudio, &mouseYAudio) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+			isAudioOn = !isAudioOn;
+			if (isAudioOn)
+			{
+				audioText.text = "Audio On";
+				AM->ToggleAudio();
+				AM->PlayClip("musicaMenu", 2);
+			}
+			else
+			{
+				audioText.text = "Audio Off";
+				AM->ToggleAudio();
+			}
+		}
 	}
 	else
 		buttonAngleAudio = 0;
 
 	// ------ BUTTON EXIT
 	//Check if the mouse is inside the render rect
-	int widthExit = 18 * exitText.text.length();
+	int widthExit = 28 * exitText.text.length();
 	int heightExit = 40;
 
 	int XExit = exitText.position[0] - (widthExit / 2);
@@ -281,6 +294,7 @@ void MainMenuScene::Render(SDL_Renderer* renderer)
 void MainMenuScene::OnEnter(){
 	
 	std::cout << "ENTRO MAIN MENU" << std::endl;
+
 	//INIT TTF
 	assert(TTF_Init() != -1);
 
@@ -297,7 +311,7 @@ void MainMenuScene::OnEnter(){
 	rankingText.position[1] = 190;
 	buttonAngleRanking = 0;
 
-	audioText.text = "Audio";
+	audioText.text = "Audio On";
 	audioText.position[0] = 260;
 	audioText.position[1] = 250;
 	buttonAngleAudio = 0;
@@ -306,11 +320,14 @@ void MainMenuScene::OnEnter(){
 	exitText.position[0] = 260;
 	exitText.position[1] = 310;
 	buttonAngleExit = 0;
+
+	AM->PlayClip("musicaMenu", 2);
 }
 
 void MainMenuScene::OnExit(){
-	//DestroySurfaceAndTexture();
 	std::cout << "SALGO MAIN MENU" << std::endl;
+
+	AM->MuteAudio();
 }
 
 void MainMenuScene::DestroySurfaceAndTexture()
