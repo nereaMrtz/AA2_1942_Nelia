@@ -37,17 +37,17 @@ void Player::Update(float dt)
 {
 	// UP
 	if (IM->CheckKeyState(SDLK_UP, PRESSED) && transform.position.y >= 11) {
-		AddMovement({ 0, -80 * dt });
+		AddMovement({ 0, -100 * dt });
 	}
 
 	// Down
 	if (IM->CheckKeyState(SDLK_DOWN, PRESSED) && transform.position.y <= RM->windowHeight - 22)
-		AddMovement({ 0, 80 * dt });
+		AddMovement({ 0, 100 * dt });
 
 	// Left
 	if (IM->CheckKeyState(SDLK_LEFT, PRESSED) && transform.position.x >= 22) {
 		currentAnim = 1;
-		AddMovement({ -80 * dt,0 });
+		AddMovement({ -100 * dt,0 });
 	}
 	else {
 		renderer[1]->Reset();
@@ -56,7 +56,7 @@ void Player::Update(float dt)
 	// Right
 	if (IM->CheckKeyState(SDLK_RIGHT, PRESSED) && transform.position.x <= RM->windowWidth - 32) {
 		currentAnim = 2;
-		AddMovement({ 80 * dt, 0 });
+		AddMovement({ 100 * dt, 0 });
 	}
 	else {
 		renderer[2]->Reset();

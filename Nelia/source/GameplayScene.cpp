@@ -11,15 +11,16 @@ GameplayScene::GameplayScene()
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 	//HM->LoadScores("resources/rankingprueba.xml");
-	HM->AddScore(20, "lasilasi");
-	HM->AddScore(10, "ginagineta");
-	HM->AddScore(52, "nimasporfa");
+	//HM->AddScore(20, "lasilasi");
+	//HM->AddScore(10, "ginagineta");
+	//HM->AddScore(52, "nimasporfa");
 	HM->SaveScores();
-	HM->ReadScores();
+	//HM->ReadScores();
 
 	timer = 0;
 	spawnerTime = 0;
 	spawn = false;
+	totalTime = loader.GetTotalTime();
 }
 
 void GameplayScene::Update(float dt)
@@ -83,7 +84,15 @@ void GameplayScene::Update(float dt)
 			break;
 		}
 
+		if (timer >= totalTime) {
+			states = DEATH;
+		}
+		std::cout << totalTime << std::endl;
+
 		hud.UpdateScore(score.GetScore());
+
+
+
 		break;
 	case GameState::PAUSED:
 		SM->SetScene("Pause Menu");
@@ -95,6 +104,8 @@ void GameplayScene::Update(float dt)
 		break;
 
 	case GameState::DEATH:
+		HM->AddScore(score.GetScore(), "SUUUUUUUU");
+		HM->SaveScores();
 		SM->SetScene("Game Over");
 
 		RestartLevel();

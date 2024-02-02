@@ -12,9 +12,13 @@
 
 class LevelLoader
 {
+private:
+	float totalTime;
 public:
 	LevelLoader();
 
 	std::vector<Wave*> LoadWaves(std::string path, float levelTime);
+
+	float GetTotalTime();
 };
 

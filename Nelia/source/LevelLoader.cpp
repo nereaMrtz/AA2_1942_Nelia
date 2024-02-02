@@ -2,6 +2,7 @@
 
 LevelLoader::LevelLoader()
 {
+	totalTime = 0;
 }
 
 std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
@@ -22,6 +23,7 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 
 		levelTime = (stof((std::string)pRoot->first_node()->value())); // totaltime 50
 		std::cout << levelTime << std::endl;
+		totalTime = levelTime;
 
 		for (rapidxml::xml_node<>* pNode = pRoot->first_node()->next_sibling(); pNode; pNode = pNode->next_sibling()) { //wave
 
@@ -79,4 +81,9 @@ std::vector<Wave*> LevelLoader::LoadWaves(std::string path, float levelTime)
 	}
 
 	return waves;
+}
+
+float LevelLoader::GetTotalTime()
+{
+	return totalTime;
 }

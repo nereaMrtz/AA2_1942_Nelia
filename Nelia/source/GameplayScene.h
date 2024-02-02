@@ -30,6 +30,7 @@ private:
 
 	float timer;
 	float spawnerTime;
+	float totalTime;
 
 	bool spawn;
 	HUD hud;

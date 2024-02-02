@@ -4,12 +4,14 @@
 #include "Tile.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "HighscoreManager.h"
 
 class GameOver : public Scene {
 private:
 	Tile background;
 
 	UIText backToMenu;
+	UIText scoresText;
 
 	TTF_Font* font;
 
