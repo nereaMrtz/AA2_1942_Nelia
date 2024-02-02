@@ -6,7 +6,6 @@ RankingScene::RankingScene()
 
 	// ------ BACKGROUND LOAD TEXTURE
 	background.LoadTexture(RM->GetRenderer(), "resources/mainMenu.jpg", false, { 0,0, 512, 512 }, { 0,0, 512, 512 }, { 0.8, 0.74 }, 0, 0, false, 0);
-
 }
 
 void RankingScene::Update(float dt)
@@ -93,8 +92,11 @@ void RankingScene::OnEnter()
 	backToMenu.position[0] = 250;
 	backToMenu.position[1] = 400;
 	buttonAngle = 0;
+
+	AM->PlayMusic("musicaMenu");
 }
 
 void RankingScene::OnExit()
 {
+	AM->MuteAudio();
 }

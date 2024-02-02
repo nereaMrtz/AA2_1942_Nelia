@@ -41,6 +41,7 @@ void GameplayScene::Update(float dt)
 
 					if (player->isDead()) {
 						states = DEATH;
+						AM->PlayClip("gameover", 0);
 					}
 				}
 				else
@@ -54,6 +55,8 @@ void GameplayScene::Update(float dt)
 						enemy->Destroy();
 						bullet->Destroy();
 						score.AddScore(50);
+
+						AM->PlayClip("colisionPlayerEnemigo", 0);
 					}
 				}
 			}
@@ -76,10 +79,7 @@ void GameplayScene::Update(float dt)
 			break;
 		}
 
-
 		hud.UpdateScore(score.GetScore());
-
-
 		break;
 	case GameState::PAUSED:
 		SM->SetScene("Pause Menu");
@@ -120,13 +120,15 @@ void GameplayScene::Render(SDL_Renderer*)
 void GameplayScene::OnEnter()
 {
 	LevelLoader loader;
-	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
-
+	waves = loader.LoadWaves("resources/stage_0.xml", levelTime); 
+	
+	AM->PlayMusic("musicaFondo");
 }
 
 
 void GameplayScene::OnExit()
 {
+	AM->MuteAudio();
 }
 
 
@@ -145,8 +147,6 @@ void GameplayScene::RestartLevel()
 
 	score.AddScore(-score.GetScore());
 
-	//LevelLoader loader;
-	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 	HM->LoadScores("resources/ranking.xml");
 }
 
