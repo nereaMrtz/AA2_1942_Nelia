@@ -93,7 +93,7 @@ void RankingScene::OnEnter()
 	backToMenu.position[1] = 400;
 	buttonAngle = 0;
 
-	AM->PlayClip("musicaMenu", 2);
+	AM->PlayMusic("musicaMenu");
 }
 
 void RankingScene::OnExit()

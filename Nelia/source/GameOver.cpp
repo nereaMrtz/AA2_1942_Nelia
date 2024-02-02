@@ -92,7 +92,7 @@ void GameOver::OnEnter()
 	backToMenu.position[1] = 400;
 	buttonAngle = 0;
 
-	AM->PlayClip("musicaMenu", 1);
+	AM->PlayMusic("musicaMenu");
 }
 
 void GameOver::OnExit()

@@ -80,7 +80,7 @@ void MainMenuScene::Update(float dt)
 			{
 				audioText.text = "Audio On";
 				AM->ToggleAudio();
-				AM->PlayClip("musicaMenu", 2);
+				AM->PlayMusic("musicaMenu");
 			}
 			else
 			{
@@ -321,7 +321,7 @@ void MainMenuScene::OnEnter(){
 	exitText.position[1] = 310;
 	buttonAngleExit = 0;
 
-	AM->PlayClip("musicaMenu", 2);
+	AM->PlayMusic("musicaMenu");
 }
 
 void MainMenuScene::OnExit(){

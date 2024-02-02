@@ -41,7 +41,7 @@ void GameplayScene::Update(float dt)
 
 					if (player->isDead()) {
 						states = DEATH;
-						AM->PlayClip("gameover", 1);
+						AM->PlayClip("gameover", 0);
 					}
 				}
 				else
@@ -56,7 +56,7 @@ void GameplayScene::Update(float dt)
 						bullet->Destroy();
 						score.AddScore(50);
 
-						AM->PlayClip("colisionPlayerEnemigo", 1);
+						AM->PlayClip("colisionPlayerEnemigo", 0);
 					}
 				}
 			}
@@ -122,7 +122,7 @@ void GameplayScene::OnEnter()
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime); 
 	
-	AM->PlayClip("musicaFondo", 3);
+	AM->PlayMusic("musicaFondo");
 }
 
 

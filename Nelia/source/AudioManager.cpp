@@ -7,12 +7,12 @@ AudioManager::AudioManager()
 
 	LoadClip("win");
 	LoadClip("pium");
-	LoadClip("musicaMenu");
-	LoadClip("musicaFondo");
+	LoadMusic("musicaMenu");
+	LoadMusic("musicaFondo");
 	LoadClip("muerteEnemy");
 	LoadClip("muertePlayer");
-	LoadMusic("gameover");
-	LoadMusic("colisionPlayerEnemigo");
+	LoadClip("gameover");
+	LoadClip("colisionPlayerEnemigo");
 
 	muted = false;
 }

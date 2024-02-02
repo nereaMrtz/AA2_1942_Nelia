@@ -94,7 +94,7 @@ void PauseMenu::OnEnter() {
 	resume.position[1] = 250;
 	buttonAngle = 0;
 
-	AM->PlayClip("musicaMenu", 2);
+	AM->PlayMusic("musicaMenu");
 }
 
 void PauseMenu::OnExit() {
