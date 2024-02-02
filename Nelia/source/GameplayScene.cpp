@@ -10,8 +10,12 @@ GameplayScene::GameplayScene()
 
 	LevelLoader loader;
 	waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
-	HM->LoadScores("resources/ranking.xml");
-	//loader.LoadRanking("resources/ranking.xml");
+	//HM->LoadScores("resources/rankingprueba.xml");
+	HM->AddScore(20, "lasilasi");
+	HM->AddScore(10, "ginagineta");
+	HM->AddScore(52, "nimasporfa");
+	HM->SaveScores();
+	HM->ReadScores();
 
 	timer = 0;
 	spawnerTime = 0;
@@ -72,7 +76,7 @@ void GameplayScene::Update(float dt)
 			}
 		}
 		timer += dt;
-		std::cout << score.GetScore() << std::endl;
+		//std::cout << score.GetScore() << std::endl;
 
 		if (IM->CheckKeyState(SDLK_ESCAPE, PRESSED)) {
 			states = PAUSED;
@@ -148,6 +152,9 @@ void GameplayScene::RestartLevel()
 	score.AddScore(-score.GetScore());
 
 	HM->LoadScores("resources/ranking.xml");
+	//LevelLoader loader;
+	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
+	//HM->LoadScores("resources/ranking.xml");
 }
 
 GameState GameplayScene::GetState()

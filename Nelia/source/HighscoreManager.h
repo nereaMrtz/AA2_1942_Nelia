@@ -14,13 +14,21 @@
 class HighscoreManager
 {
 private:
+	const std::string RANKING_DATA_PATH= "resources/ranking.dat";
+
 	static HighscoreManager* instance;
 	HighscoreManager();
 
 	std::map<int, std::string> scores;
+	std::map<int, std::string> loadScore;
 
 public:
 	static HighscoreManager* GetInstance();
-	void LoadScores(std::string path);
+	//void LoadScores();
+	void SaveScores();
+	void AddScore(int value, std::string name);
+	void ReadScores();
+
+	std::map<int, std::string> GetScores();
 };
 

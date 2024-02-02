@@ -78,6 +78,51 @@ void RankingScene::Render(SDL_Renderer*)
 
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
+
+
+	//////////////////   PLAYERS
+
+
+	//Text data
+	//width
+	int widthS = 15 * scoresText.text.length();
+	//height
+	int heightS = 15;
+	//color
+	SDL_Color colorS = { 255, 255, 255 };
+	//surface
+	SDL_Surface* surfaceS = TTF_RenderText_Solid(font, scoresText.text.c_str(), colorS);
+
+	assert(surfaceS != nullptr);
+
+	//Textura
+	SDL_Texture* textureS = SDL_CreateTextureFromSurface(RM->GetRenderer(), surfaceS);
+	assert(textureS != nullptr);
+
+	SDL_SetTextureAlphaMod(textureS, 255); //Para que un text ose haga transparente -> 255 = max opacidad
+
+	//Dibujar
+	SDL_Rect renderRectS =
+	{
+		scoresText.position[0] - widthS / 2,
+		scoresText.position[1] - heightS / 2,
+		widthS,
+		heightS
+	};
+
+	SDL_RenderCopyEx(
+		RM->GetRenderer(),		// Renderer
+		textureS,		// Target texture
+		NULL,			// Texture part we want to draw
+		&renderRectS,	// Where do we want to draw and size
+		0,	// Angle
+		NULL,			// Center of the sprite
+		SDL_FLIP_NONE	// Flip the sprite
+	);
+
+	SDL_FreeSurface(surfaceS);
+	SDL_DestroyTexture(textureS);
+
 }
 
 void RankingScene::OnEnter()
@@ -94,7 +139,38 @@ void RankingScene::OnEnter()
 	buttonAngle = 0;
 
 	AM->PlayMusic("musicaMenu");
+
+	HM->ReadScores();
+
+	std::map<int, std::string> rankingScores = HM->GetScores();
+	std::map<int, std::string> orderedScores;
+	
+
+	std::map<int, std::string>::reverse_iterator it;
+	for (it = rankingScores.rbegin(); it != rankingScores.rend(); it++) {
+
+		int i = 0;
+
+		std::cout << "(" << (*it).first << ", " << (*it).second
+			<< ")" << std::endl;
+		
+		
+		assert(TTF_Init() != -1);
+
+		font = TTF_OpenFont("resources/fonts/theRealFont.ttf", 28);
+		assert(font != nullptr);
+
+		std::string textInt = std::to_string((*it).first) + "    " + (*it).second;
+
+		scoresText.text = textInt;
+		scoresText.position[0] = 250;
+		scoresText.position[1] += 90;
+		i++;
+	}
+
 }
+
+
 
 void RankingScene::OnExit()
 {
