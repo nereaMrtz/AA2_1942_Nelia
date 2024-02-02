@@ -4,9 +4,12 @@
 
 #include <iostream>
 
+
 class SmallNormalPlane : public EnemyPlane{
 private:
 	bool dir;
+
+	const float speed = 300;
 
 protected:
 	MovementPattern movementType;

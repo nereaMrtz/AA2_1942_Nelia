@@ -6,20 +6,20 @@ void SmallNormalPlane::UpdateMovementPattern(float dt)
 	{
 	case MovementPattern::V:
 		if (dir) {
-			SetPosition(transform.position.x + dt * 300, transform.position.y + dt * 300);
+			SetPosition(transform.position.x + dt * speed, transform.position.y + dt * speed);
 		}
 		else {
-			SetPosition(-transform.position.x + dt * 5, transform.position.y + dt * 300);
+			SetPosition(-transform.position.x + dt * 5, transform.position.y + dt * speed);
 		}
 		break;
 	case MovementPattern::O:
 		std::cout << transform.position.y << std::endl;
 		if (transform.position.y > 200)
-			SetPosition(transform.position.x + dt * 300, transform.position.y + dt * 300);
-		SetPosition(transform.position.x, transform.position.y + dt * 300);
+			SetPosition(transform.position.x + dt * speed, transform.position.y + dt * speed);
+		SetPosition(transform.position.x, transform.position.y + dt * speed);
 		break;
 	case MovementPattern::I:
-		SetPosition(transform.position.x, transform.position.y + dt * 300);
+		SetPosition(transform.position.x, transform.position.y + dt * speed);
 		break;
 	default:
 		break;
