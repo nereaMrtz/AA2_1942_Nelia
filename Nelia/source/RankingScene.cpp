@@ -93,6 +93,8 @@ void RankingScene::OnEnter()
 	backToMenu.position[0] = 250;
 	backToMenu.position[1] = 400;
 	buttonAngle = 0;
+
+	HM->ReadScores();
 }
 
 void RankingScene::OnExit()

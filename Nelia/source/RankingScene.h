@@ -3,6 +3,7 @@
 #include "UIText.h"
 #include "Tile.h"
 #include "InputManager.h"
+#include "HighscoreManager.h"
 
 class RankingScene :  public Scene
 {

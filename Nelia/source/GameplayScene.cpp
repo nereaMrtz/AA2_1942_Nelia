@@ -14,7 +14,7 @@ GameplayScene::GameplayScene()
 	HM->AddScore(20, "lasilasi");
 	HM->AddScore(10, "ginagineta");
 	HM->AddScore(52, "nimasporfa");
-	HM->SaveScores("resources/ranking.dat");
+	HM->SaveScores();
 	HM->ReadScores();
 
 	timer = 0;
@@ -151,7 +151,7 @@ void GameplayScene::RestartLevel()
 
 	//LevelLoader loader;
 	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
-	HM->LoadScores("resources/ranking.xml");
+	//HM->LoadScores("resources/ranking.xml");
 }
 
 GameState GameplayScene::GetState()

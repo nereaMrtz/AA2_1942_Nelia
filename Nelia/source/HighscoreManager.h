@@ -14,6 +14,8 @@
 class HighscoreManager
 {
 private:
+	const std::string RANKING_DATA_PATH= "resources/ranking.dat";
+
 	static HighscoreManager* instance;
 	HighscoreManager();
 
@@ -22,8 +24,8 @@ private:
 
 public:
 	static HighscoreManager* GetInstance();
-	void LoadScores(std::string path);
-	void SaveScores(std::string path);
+	//void LoadScores();
+	void SaveScores();
 	void AddScore(int value, std::string name);
 	void ReadScores();
 };
