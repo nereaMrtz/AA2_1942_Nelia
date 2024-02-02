@@ -13,6 +13,8 @@ private:
 
 	UIText backToMenu;
 
+	UIText scoresText;
+
 	TTF_Font* font;
 
 	float buttonAngle;

@@ -28,5 +28,7 @@ public:
 	void SaveScores();
 	void AddScore(int value, std::string name);
 	void ReadScores();
+
+	std::map<int, std::string> GetScores();
 };
 

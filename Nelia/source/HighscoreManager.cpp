@@ -87,13 +87,6 @@ void HighscoreManager::AddScore(int value, std::string name)
 
 void HighscoreManager::ReadScores()
 {
-	//std::string substr(size_t pos = 0, size_t len = std::string::npos);
-
-	/*bool isNum = true;
-	int size = 0;
-	int lastSizeNum = 0;
-	int lastSizeName = 0;
-	int scoreValue = 0;*/
 
 	std::ifstream myFile;
 	myFile.open(RANKING_DATA_PATH, std::ios::in | std::ios::binary);
@@ -133,90 +126,11 @@ void HighscoreManager::ReadScores()
 
 			std::cout << "READING: Score: " << inScoreVal << "  " << inName << std::endl;
 		}
-
-
-		//std::string buffer;
-		//std::string bufferAux;
-		//std::string otherString;
-
-		//buffer.resize(totalSize);
-		//myFile.read(&buffer[0], buffer.size());
-
-		//int* ptr = new int(0);
-
-		//bufferAux = buffer;
-		//for (auto i = 0; i != totalSize + 1; i++) {
-
-		//	//ptr = &i;
-
-		//	if(buffer[i] == '\b' || buffer[i] == '\r' || buffer[i] == '\n') {
-		//		lastSizeNum++;
-		//		lastSizeName++;
-		//		//size++;
-		//		size = 0;
-		//		std::cout << "SOH" << std::endl;
-		//	}
-		//	else if (buffer[i] != '\0') {
-
-		//		if (isNum) {
-		//			if (buffer[i] == ' ') {
-		//				ptr = &size;
-		//				myFile.read(&bufferAux[*ptr], size);
-		//				std::string newString = bufferAux.substr(lastSizeNum, size);
-		//				bufferAux.resize(size + 1);
-		//				
-		//				std::cout << newString <<std::endl;
-
-		//				bufferAux = buffer;
-		//				bufferAux.resize(buffer.size() + 1);
-		//				//otherString = bufferAux.substr(bufferAux[size], bufferAux.size());
-
-		//				//std::cout << otherString << std::endl;
-		//				size = 0;
-		//				isNum = false;
-
-		//				lastSizeName++;
-
-		//			}
-		//			else {
-		//				size++;
-		//				lastSizeName++;
-		//			}
-		//		}
-		//		else {
-		//			if (buffer[i] != '-') {
-		//				size++;
-		//				lastSizeNum++;
-		//			}
-		//			else{
-		//				ptr = &size;
-		//				myFile.read(&bufferAux[*ptr], size);
-		//				std::string newString = bufferAux.substr(lastSizeName, size);
-		//				bufferAux.resize(size + 1);
-
-
-		//				std::cout << newString << std::endl;
-
-		//				bufferAux = buffer;
-		//				bufferAux.resize(buffer.size() + 1);
-
-		//				size = 0;
-		//				isNum = true;
-
-		//				lastSizeNum++;
-
-		//			}
-		//		}
-		//	}
-		//	else {
-		//		lastSizeNum++;
-		//		lastSizeName++;
-		//		size++;
-		//	}
-
-		//}
-
 	}
 	myFile.close();
+}
 
+std::map<int, std::string> HighscoreManager::GetScores()
+{
+	return scores;
 }
