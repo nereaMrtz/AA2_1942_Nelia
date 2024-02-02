@@ -154,8 +154,8 @@ void GameOver::OnEnter()
 	std::map<int, std::string> orderedScores;
 
 
-	std::map<int, std::string>::reverse_iterator it;
-	for (it = rankingScores.rbegin(); it != rankingScores.rend(); it++) {
+	std::map<int, std::string>::iterator it;
+	for (it = rankingScores.begin(); it != rankingScores.end(); it++) {
 
 		int i = 0;
 
