@@ -130,7 +130,7 @@ void Player::Render()
 void Player::Shoot()
 {
 	PlayerBullet* bulletAux = new PlayerBullet(transform.position);
-
+	AM->PlayClip("pium", 0);
 	bullets.push_back(bulletAux);
 }
 

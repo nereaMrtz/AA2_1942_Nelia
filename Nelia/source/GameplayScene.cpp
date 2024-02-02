@@ -151,7 +151,7 @@ void GameplayScene::RestartLevel()
 
 	score.AddScore(-score.GetScore());
 
-	HM->LoadScores("resources/ranking.xml");
+	//HM->LoadScores("resources/ranking.xml");
 	//LevelLoader loader;
 	//waves = loader.LoadWaves("resources/stage_0.xml", levelTime);
 	//HM->LoadScores("resources/ranking.xml");

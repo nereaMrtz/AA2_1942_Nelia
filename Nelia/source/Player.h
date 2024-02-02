@@ -5,6 +5,7 @@
 #include "SupportPlane.h"
 #include "EnemyPlane.h"
 #include "PlayerBullet.h"
+#include "AudioManager.h"
 
 class Player : public GameObject {
 private:
